@@ -4,6 +4,7 @@
 #include "keypad.h"
 #include "motor.h"
 #include <stdlib.h>
+#include "soil.h"
 
 //*************************************  32L476GDISCOVERY ***************************************************************************
 // STM32L4:  STM32L476VGT6 MCU = ARM Cortex-M4 + FPU + DSP, 
@@ -65,33 +66,27 @@
 // PA3  = OPAMP1_VOUT (Joy Up)        PB0 = OPAMP2_VOUT (LCD SEG21)
 //
 //****************************************************************************************************************
-/*
-*	BEGIN
-*		Set up HSI clock
-*		Initialize keypad GPIO
-*		loop forever
-*			Loop until #
-*				Scan for key press
-*				make sure pressed key is valid
-*				store keypress in counter variable
-*			EndLoop
-*			convert count to an int 
-*			make sure the number is less than 59. If not, make 59
-*			wind up clock (probs a loop that adds and ticks clock)
-*			wait until # is pressed again (loop)
-* 		loop until counter variable is zero
-*				decrement motor by one tick
-*				if counter variable % 15 == 0
-*					tick another time
-*				counter variable--
-*			endloop
-*			turn on buzzer for a sec
-*		endloop
-* END
-*			
-*
-*/
 
+uint8_t * toString(int x)
+{
+	static uint8_t numString[4];
+	int y;
+	if(x < 0)
+	{
+		numString[0] = '-';
+	} else {
+		numString[0] = '0';
+	}
+	int z = abs(x);
+	for(int i = 1; i < 4; i++)
+	{
+		y = z %10;
+		z /= 10;
+		numString[4 - i] = (y + 48);
+	}
+		
+	return numString;
+}
 
 int main(void){
 	
@@ -103,7 +98,20 @@ int main(void){
 	SysTick_Init();
 	LCD_Initialization();
 	keypad_pin_init();
-	motor_init();
+	motor_init();   	//PB7  for X direction
+										//PB6 for Y direction
+										//PB 3 for Z direction
+	
+	
+	
+	adcInit(); //uses PA1
+	
+	TIM2_Init();
+//	TIM3_Init();
+	
+	
+	
+	
 	
 		// Enable GPIO Clock for buzzer
 	RCC->AHB2ENR |= RCC_AHB2ENR_GPIOEEN;
@@ -113,50 +121,26 @@ int main(void){
 	GPIOE->MODER &= ~0x30000U;		// clear PE8 MODER (buzzer)
 	GPIOE->MODER |=  0x10000U;			// set PE8 to output
 	
-	// GPIO Push-Pull: No pull-up pull-down (00),
-	// Pull-up (01), Pull-down (10), Reserved (11)
-//	GPIOE->PUPDR &= ~0xC000U;
-//	GPIOE->PUPDR |= 0x8000U; // Pull down
 	
-	//GPIOE->OTYPER &= ~100U;		// set PE8 to push-pull
-	set_speed(2000);
-	while(1)
-	{
-		pulse();
+	
+		// Configure green LED for BPM
+	RCC->AHB2ENR |= RCC_AHB2ENR_GPIOEEN;
+	GPIOE->MODER &= ~GPIO_MODER_MODE8;
+	GPIOE->MODER |= GPIO_MODER_MODE8_0;		// configure PE8 to output mode
+	
+	
+	
+	while(1){
+		LCD_DisplayString(toString(getReading()));
 	}
 	
-	while(1)
-	{
-		uint8_t input = '0';
-		uint8_t count [3] = {0};
-		uint32_t index = 0;
-		while(input != 0x23)
-		{
-			input = keypad_scan();									//read in input
-			if(input >= '0' && input <= '9' && index < 2)				//check if valid
-			{
-				count[index] = input;											//set as a digit
-				index++;
-			}
-		}
-		LCD_DisplayString(count);
-		uint32_t countTime = (count[1] - 48) + (count[0]- 48)*10;				//convert count to an interger
-		if(countTime > 59)												//if countTime is bigger than 59, just go ahead and fix that
-		{
-			countTime = 59;													//make it 59
-		}
-
-		wind_up(countTime);					//loop to wind up clock
-		
-		input = 0;
-		while(input != 0x23)				//wait loop to wait for # press
-		{
-			input = keypad_scan();									//read in input
-		}
-
-		setSec(countTime);
-		buzzOn();
-	}
+	
+	set_speed(1500);
+//	while(1)
+//	{
+//		pulseX();
+//	}
+	
 }
 
 

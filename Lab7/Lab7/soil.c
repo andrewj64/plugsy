@@ -1,4 +1,4 @@
-#include "ADC.h"
+#include "soil.h"
 
 uint32_t reading, beats;
 
@@ -159,11 +159,11 @@ void ADC1_Wakeup(void)
 }
 
 
-void TIM3_IRQHandler()
-{
-	processLatestSample(beats);
-	TIM3->SR &= ~TIM_SR_UIF; // clear flag
-}
+//void TIM3_IRQHandler()
+//{
+//	processLatestSample(beats);
+//	TIM3->SR &= ~TIM_SR_UIF; // clear flag
+//}
 
 void TIM2_IRQHandler()
 {

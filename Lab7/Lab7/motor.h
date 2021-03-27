@@ -7,9 +7,8 @@
 
 void motor_init(void);
 void set_speed(int speed);
-void wind_up(int time);
-void tick_up(void);
-void tick_down(void);
-void pulse(void);
+void pulseX(void);
+void pulseY(void);
+void pulseZ(void);
 
 #endif
