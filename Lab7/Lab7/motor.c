@@ -44,3 +44,8 @@ void pulseZ(void)
 	uint8_t on = (GPIOB->ODR & GPIO_ODR_OD3) >> 3;
 		
 }
+
+void pulseServo(void)
+{
+	
+}

@@ -5,6 +5,7 @@
 #include "motor.h"
 #include <stdlib.h>
 #include "soil.h"
+#include "servo.h"
 
 //*************************************  32L476GDISCOVERY ***************************************************************************
 // STM32L4:  STM32L476VGT6 MCU = ARM Cortex-M4 + FPU + DSP, 
@@ -101,13 +102,14 @@ int main(void){
 	motor_init();   	//PB7  for X direction
 										//PB6 for Y direction
 										//PB 3 for Z direction
+	servo_init();
 	
 	
 	
 	adcInit(); //uses PA1
 	
 	TIM2_Init();
-//	TIM3_Init();
+	TIM3_Init();
 	
 	
 	
@@ -129,17 +131,18 @@ int main(void){
 	GPIOE->MODER |= GPIO_MODER_MODE8_0;		// configure PE8 to output mode
 	
 	
-	
-	while(1){
-		LCD_DisplayString(toString(getReading()));
-	}
-	
-	
 	set_speed(1500);
-//	while(1)
-//	{
-//		pulseX();
-//	}
+	int i = 0;
+	//set_servo(180);
+	while(1)
+	{
+		LCD_DisplayString(toString(getReading()));
+		//update_servo();
+//		if(i > 100000000) 
+//			//set_servo(90);
+//		i++;
+		//pulseX();
+	}
 	
 }
 

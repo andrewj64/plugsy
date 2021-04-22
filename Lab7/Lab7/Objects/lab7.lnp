@@ -6,6 +6,7 @@
 ".\objects\lcd.o"
 ".\objects\motor.o"
 ".\objects\soil.o"
+".\objects\servo.o"
 --strict --scatter ".\Objects\lab7.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
