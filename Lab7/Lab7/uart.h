@@ -4,11 +4,10 @@
 
 #include<string.h>
 
-char msg[500];
-
 void USART_Init(void);
 //char check_uart(void);
 int msg_ready(void);
 void read_msg(void);
+void handle_serial(void);
 
 #endif

@@ -1,7 +1,6 @@
-#ifndef UART_H
+#ifndef SERIAL_H
 #define UART_H
 #include "stm32l476xx.h"
-
 
 
 

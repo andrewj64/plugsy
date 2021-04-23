@@ -465,16 +465,6 @@
               <FileType>5</FileType>
               <FilePath>.\uart.h</FilePath>
             </File>
-            <File>
-              <FileName>serial.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\serial.c</FilePath>
-            </File>
-            <File>
-              <FileName>serial.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\serial.h</FilePath>
-            </File>
           </Files>
         </Group>
       </Groups>

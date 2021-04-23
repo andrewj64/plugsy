@@ -45,3 +45,13 @@ cmd hashit(char* command)
   if(command == "moveS") return eMoveS;
   return eUnknown; // command not found
 }
+
+void handle_serial(void)
+{
+	switch(hashit(msg)){
+    case eUnknown:
+    default:
+      Serial.println("Error: Unknown command");
+      break;     
+  }
+}

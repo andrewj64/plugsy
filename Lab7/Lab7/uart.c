@@ -1,6 +1,30 @@
 #include "uart.h"
-#include <iostream>
 
+static char msg[500];
+static int msg_size = 0;
+
+// Commands enum
+typedef enum cmds {
+  eQ,
+  eSettings,
+  eGetP,
+  eSetLighting,
+  eSetVLimit,
+  eSetHLimit,
+  eSetVSpeed,
+  eSetHSpeed,
+  eSetTracking,
+  eRunD,
+  eRunU,
+  eMoveH,
+  eMoveV,
+  eEnd,
+  eSetZero,
+  eMoveS,
+  eReset,
+  eZeroV,
+  eUnknown  
+} cmd;
 
 void USART_Init(void)
 {
@@ -68,11 +92,46 @@ int msg_ready(void)
 void read_msg(void)
 {
 	char letter;
-	while(!(USART2->ISR & USART_ISR_RXNE)); //wait for hardware to set RXNE
-	letter = USART2->RDR; 									//reading RDR clears bit and sets to buffer
-	if(letter == '\n')
-		return;
+	while(letter != '\n')
+	{
+		while(!(USART2->ISR & USART_ISR_RXNE)); //wait for hardware to set RXNE
+		letter = USART2->RDR; 									//reading RDR clears bit and sets to buffer
+		msg_size++;
+	}
+	strcat(msg, "\0");
+	msg_size++;
 }
 
+//cmd hashit(void)
+//{
+//	if(strcmp(msg, "?")) 						return eQ;
+//  if(strcmp(msg, ".")) 						return eSettings;
+//  if(strcmp(msg, "getP")) 				return eGetP;
+//  if(strcmp(msg, "setLighting")) return eSetLighting;
+//  if(strcmp(msg, "setVLimit")) return eSetVLimit;
+//  if(strcmp(msg, "setHLimit")) return eSetHLimit;
+//  if(strcmp(msg, "setVSpeed")) return eSetVSpeed; 
+//  if(strcmp(msg, "setHSpeed")) return eSetHSpeed; 
+//  if(strcmp(msg, "setTracking")) return eSetTracking;
+//  if(strcmp(msg, "runD")) return eRunD;
+//  if(strcmp(msg, "runU")) return eRunU;
+//  if(strcmp(msg, "moveH")) return eMoveH;
+//  if(strcmp(msg, "moveV")) return eMoveV;
+//  if(strcmp(msg, "end")) return eEnd;
+//  if(strcmp(msg,  "setZero")) return eSetZero;
+//  if(strcmp(msg,  "zeroV")) return eZeroV;  // eZeroV and reset do the same thing right now
+//  if(strcmp(msg,  "reset")) return eReset;
+//  if(strcmp(msg, "moveS")) return eMoveS;
+//  return eUnknown; // command not found
+//}
 
+void handle_serial(void)
+{
+//	switch(hashit()){
+//    case eUnknown:
+//    default:
+//      break;     
+//  }
+//	strcpy(msg, "");
+}
 

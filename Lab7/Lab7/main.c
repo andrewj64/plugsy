@@ -95,7 +95,6 @@ uint8_t * toString(int x)
 int main(void){
 	// variable declarations
 	char letter, upperLetter;
-	char msg[500];
 	
 	// Switch system clock to HSI here
 	RCC->CR |= RCC_CR_HSION;
@@ -110,17 +109,9 @@ int main(void){
 										//PB 3 for Z direction
 	servo_init();
 	USART_Init();
-	
-	
-	
 	adcInit(); //uses PA1
-	
 	TIM2_Init();
 	TIM3_Init();
-	
-	
-	
-	
 	
 		// Enable GPIO Clock for buzzer
 	RCC->AHB2ENR |= RCC_AHB2ENR_GPIOEEN;

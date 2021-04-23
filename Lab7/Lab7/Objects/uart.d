@@ -9,10 +9,3 @@
 .\objects\uart.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.3.0\CMSIS\Include\mpu_armv7.h
 .\objects\uart.o: C:\Keil_v5\ARM\PACK\Keil\STM32L4xx_DFP\2.0.0\Drivers\CMSIS\Device\ST\STM32L4xx\Include\system_stm32l4xx.h
 .\objects\uart.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
-.\objects\uart.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\iostream
-.\objects\uart.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\iosfwd
-.\objects\uart.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\rw/_defs.h
-.\objects\uart.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\rw/_config.h
-.\objects\uart.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\rw/config.h
-.\objects\uart.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\cwchar
-.\objects\uart.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\wchar.h

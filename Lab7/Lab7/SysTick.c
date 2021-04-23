@@ -1,15 +1,17 @@
 #include "Systick.h"
 #include "motor.h"
+#include "servo.h"
 
-volatile int sec;
-volatile bool count = false;
+#define PERIOD 400
+volatile int count = 0;
 volatile bool buzz = false;
+
 
 
 void SysTick_Init(void) {
 SysTick->CTRL = 0; 						// Disable SysTick
 	
-SysTick->LOAD = 3860320; 			// Set reload register
+SysTick->LOAD = 200; 			// Set reload register .1 ms period 
 	
 // Set interrupt priority of SysTick to least urgency (i.e., largest priority value)
 NVIC_SetPriority (SysTick_IRQn, (1<<__NVIC_PRIO_BITS) - 1);
@@ -28,6 +30,19 @@ SysTick->CTRL |= SysTick_CTRL_ENABLE_Msk;
 
 void SysTick_Handler(void)
 {
+	if(count < pulse)	{
+		GPIOA->ODR |= GPIO_ODR_OD0;
+	}	else {
+		//go CAN_TSR_LOW//
+		GPIOA->ODR &= ~GPIO_ODR_OD0;
+	}
+	
+	if(count > PERIOD)
+		count = 0;
+	count++;
+	
+	
+	
 	//pulse();
 	// buzz = false;
 	// if(count)												//if we are supposed to count.....
@@ -42,11 +57,11 @@ void SysTick_Handler(void)
 	// }
 }
 
-void setSec(uint32_t countTime)
-{
-	sec = countTime;
-	count = true;
-}
+//void setSec(uint32_t countTime)
+//{
+//	sec = countTime;
+//	count = true;
+//}
 
 void buzzOn(void)
 {
