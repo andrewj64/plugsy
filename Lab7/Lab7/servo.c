@@ -57,6 +57,6 @@ void TIM3_Init(void)
 
 void TIM3_IRQHandler()
 {
-	GPIOA->ODR ^= GPIO_ODR_OD0;
+	//GPIOA->ODR ^= GPIO_ODR_OD0;
 	TIM3->SR &= ~TIM_SR_UIF; // clear flag
 }

@@ -3,9 +3,12 @@
 #include "LCD.h"
 #include "keypad.h"
 #include "motor.h"
-#include <stdlib.h>
 #include "soil.h"
 #include "servo.h"
+#include "uart.h"
+
+#include <ctype.h>
+#include <stdlib.h>
 
 //*************************************  32L476GDISCOVERY ***************************************************************************
 // STM32L4:  STM32L476VGT6 MCU = ARM Cortex-M4 + FPU + DSP, 
@@ -90,6 +93,9 @@ uint8_t * toString(int x)
 }
 
 int main(void){
+	// variable declarations
+	char letter, upperLetter;
+	char msg[500];
 	
 	// Switch system clock to HSI here
 	RCC->CR |= RCC_CR_HSION;
@@ -103,6 +109,7 @@ int main(void){
 										//PB6 for Y direction
 										//PB 3 for Z direction
 	servo_init();
+	USART_Init();
 	
 	
 	
@@ -131,17 +138,41 @@ int main(void){
 	GPIOE->MODER |= GPIO_MODER_MODE8_0;		// configure PE8 to output mode
 	
 	
-	set_speed(1500);
+	set_speed(200);
 	int i = 0;
 	//set_servo(180);
 	while(1)
 	{
+		if(msg_ready())
+		{
+			read_msg();
+			handle_serial();
+		}
+		while(!(USART2->ISR & USART_ISR_RXNE)); //wait for hardware to set RXNE
+		letter = USART2->RDR; 									//reading RDR clears bit and sets to buffer
+		if(islower(letter))
+		{
+			upperLetter = toupper(letter);
+			while(!(USART2->ISR & USART_ISR_TXE));	// wait until hardware sets TXE
+			USART2->TDR = upperLetter;		// write to TDR
+			
+			
+			while(!(USART2->ISR & USART_ISR_TC)); 	// wait until TC bit is set
+			
+			USART2->ICR |= USART_ICR_TCCF;	// clear TC flag
+		}
+		//GPIOC->ODR = 0x4000U; //set high for 1 ms
+		GPIOA->ODR |= GPIO_ODR_OD0;
+		for(int delay=0; delay < 10; delay++);
+		GPIOA->ODR &= ~GPIO_ODR_OD0;
+		//GPIOC->ODR = 0x0000U; //set low for 19 ms
+		for(int delay=0; delay < 150; delay++);
 		LCD_DisplayString(toString(getReading()));
 		//update_servo();
-//		if(i > 100000000) 
+//		if(i > 100000000)
 //			//set_servo(90);
 //		i++;
-		//pulseX();
+		pulseX();
 	}
 	
 }

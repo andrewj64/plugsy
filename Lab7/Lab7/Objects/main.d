@@ -12,6 +12,9 @@
 .\objects\main.o: LCD.h
 .\objects\main.o: keypad.h
 .\objects\main.o: motor.h
-.\objects\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 .\objects\main.o: soil.h
 .\objects\main.o: servo.h
+.\objects\main.o: uart.h
+.\objects\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\objects\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\ctype.h
+.\objects\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h

@@ -40,7 +40,7 @@ unsigned char keypad_scan(void)
 	unsigned char row, col, shift;
 	unsigned char key = 0;
 	
-	// Check whether any key has been pressed
+	// Check whether any  key has been pressed
 	// 	Output zeros on all row pins
 	//	Delay shortly, and read inputs of column pins
 	//	If inputs are 1 for all columns, then no key has been pressed
