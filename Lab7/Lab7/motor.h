@@ -5,6 +5,8 @@
 #include <stdint.h>
 #include <stdbool.h>
 
+static int pos[3] = {0,0,0};
+
 void motor_init(void);
 void set_speed(int speed);
 void pulseX(void);

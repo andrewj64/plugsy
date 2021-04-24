@@ -9,5 +9,4 @@
 .\objects\systick.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.3.0\CMSIS\Include\mpu_armv7.h
 .\objects\systick.o: C:\Keil_v5\ARM\PACK\Keil\STM32L4xx_DFP\2.0.0\Drivers\CMSIS\Device\ST\STM32L4xx\Include\system_stm32l4xx.h
 .\objects\systick.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
-.\objects\systick.o: motor.h
 .\objects\systick.o: servo.h

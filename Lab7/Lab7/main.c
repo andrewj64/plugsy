@@ -94,7 +94,6 @@ uint8_t * toString(int x)
 
 int main(void){
 	// variable declarations
-	char letter, upperLetter;
 	
 	// Switch system clock to HSI here
 	RCC->CR |= RCC_CR_HSION;
@@ -130,39 +129,19 @@ int main(void){
 	
 	
 	set_speed(200);
-	int i = 0;
 	//set_servo(180);
+	print_uart("PLUGSY ready\r\n");
 	while(1)
 	{
+		LCD_DisplayString(toString(getReading()));
 		if(msg_ready())
 		{
 			read_msg();
 			handle_serial();
 		}
-		while(!(USART2->ISR & USART_ISR_RXNE)); //wait for hardware to set RXNE
-		letter = USART2->RDR; 									//reading RDR clears bit and sets to buffer
-		if(islower(letter))
-		{
-			upperLetter = toupper(letter);
-			while(!(USART2->ISR & USART_ISR_TXE));	// wait until hardware sets TXE
-			USART2->TDR = upperLetter;		// write to TDR
-			
-			
-			while(!(USART2->ISR & USART_ISR_TC)); 	// wait until TC bit is set
-			
-			USART2->ICR |= USART_ICR_TCCF;	// clear TC flag
-		}
-		//GPIOC->ODR = 0x4000U; //set high for 1 ms
-		GPIOA->ODR |= GPIO_ODR_OD0;
-		for(int delay=0; delay < 10; delay++);
-		GPIOA->ODR &= ~GPIO_ODR_OD0;
-		//GPIOC->ODR = 0x0000U; //set low for 19 ms
-		for(int delay=0; delay < 150; delay++);
-		LCD_DisplayString(toString(getReading()));
+
+		
 		//update_servo();
-//		if(i > 100000000)
-//			//set_servo(90);
-//		i++;
 		pulseX();
 	}
 	

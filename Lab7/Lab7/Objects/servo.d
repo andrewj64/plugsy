@@ -8,3 +8,10 @@
 .\objects\servo.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.3.0\CMSIS\Include\cmsis_armcc.h
 .\objects\servo.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.3.0\CMSIS\Include\mpu_armv7.h
 .\objects\servo.o: C:\Keil_v5\ARM\PACK\Keil\STM32L4xx_DFP\2.0.0\Drivers\CMSIS\Device\ST\STM32L4xx\Include\system_stm32l4xx.h
+.\objects\servo.o: uart.h
+.\objects\servo.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\objects\servo.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\objects\servo.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\ctype.h
+.\objects\servo.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\objects\servo.o: Systick.h
+.\objects\servo.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h

@@ -7,7 +7,6 @@
 
 void SysTick_Init(void);
 void SysTick_Handler(void);
-void buzzOn(void);
-void setSec(uint32_t countTime);
+void pulse_servo(void);
 
 #endif

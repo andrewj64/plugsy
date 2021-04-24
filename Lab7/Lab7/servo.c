@@ -1,4 +1,9 @@
 #include "servo.h"
+#include "uart.h"
+#include "Systick.h"
+
+#include <stdio.h>
+#include <string.h>
 
 #define CONVERSION_FACTOR 20000/180
 int high = 180;
@@ -60,3 +65,38 @@ void TIM3_IRQHandler()
 	//GPIOA->ODR ^= GPIO_ODR_OD0;
 	TIM3->SR &= ~TIM_SR_UIF; // clear flag
 }
+
+void servo_handler(void)
+{
+//	int length = strlen(msg);
+//	char* pch;
+//	int arg = 0;
+//	char* buf = strdup(msg);
+//	pch = strtok(buf," ");
+//	while (pch != NULL)
+//  {
+//    pch = strtok (NULL, " ,.-");
+//		if(arg == 1)
+//		{
+//			if(strcmp(pch, "0") == 0)	
+//				close_servo();
+//			else if(strcmp(pch, "1") == 0)
+//				open_servo();
+//		}
+//		arg++;
+//  }
+//	free(buf);
+}
+
+void open_servo(void)
+{
+	pulse = 30;
+	pulse_servo();
+}
+
+void close_servo(void)
+{
+	pulse = 20;
+	pulse_servo();
+}
+

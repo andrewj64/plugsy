@@ -1,10 +1,9 @@
 #include "Systick.h"
-#include "motor.h"
 #include "servo.h"
 
 #define PERIOD 400
 volatile int count = 0;
-volatile bool buzz = false;
+volatile int pulses = PERIOD;
 
 
 
@@ -30,31 +29,27 @@ SysTick->CTRL |= SysTick_CTRL_ENABLE_Msk;
 
 void SysTick_Handler(void)
 {
-	if(count < pulse)	{
-		GPIOA->ODR |= GPIO_ODR_OD0;
-	}	else {
-		//go CAN_TSR_LOW//
-		GPIOA->ODR &= ~GPIO_ODR_OD0;
+	if(pulses < 200)
+	{
+		if(count < pulse)	{
+			GPIOA->ODR |= GPIO_ODR_OD0;
+		}	else {
+			//go CAN_TSR_LOW//
+			GPIOA->ODR &= ~GPIO_ODR_OD0;
+		}
+		
+		count++;
+		if(count > PERIOD)
+		{
+			count = 0;
+			pulses++;
+		}
 	}
-	
-	if(count > PERIOD)
-		count = 0;
-	count++;
-	
-	
-	
-	//pulse();
-	// buzz = false;
-	// if(count)												//if we are supposed to count.....
-	// {
-	// 	sec--;
-	// 	tick_down();
-	// 	if(sec == 0)										//when we reach 0
-	// 	{
-	// 		count = false;									//set seconds to 0 
-	// 		buzz = true;
-	// 	}
-	// }
+}
+
+void pulse_servo(void)
+{
+	pulses = 0;
 }
 
 //void setSec(uint32_t countTime)
@@ -63,19 +58,4 @@ void SysTick_Handler(void)
 //	count = true;
 //}
 
-void buzzOn(void)
-{
-	//wait until buzz is true
-	while(!buzz);
-
-	//loop while the buzz is true and turn on the buzzer
-	while(buzz)
-	{
-		for(int i = 0; i < 800; i++);	// short delay
-		GPIOE->ODR |= 0x100U;					// set voltage to high
-		for(int i = 0; i < 800; i++);	// short delay
-		GPIOE->ODR &= ~0x100U;					// set voltage to low
-		
-	}
-}
 

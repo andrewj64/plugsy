@@ -1,28 +1,20 @@
 #include "uart.h"
+#include "motor.h"
+#include "servo.h"
+#include "LCD.h"
 
-static char msg[500];
-static int msg_size = 0;
+
 
 // Commands enum
 typedef enum cmds {
   eQ,
   eSettings,
-  eGetP,
-  eSetLighting,
-  eSetVLimit,
-  eSetHLimit,
-  eSetVSpeed,
-  eSetHSpeed,
-  eSetTracking,
-  eRunD,
-  eRunU,
-  eMoveH,
-  eMoveV,
-  eEnd,
-  eSetZero,
-  eMoveS,
-  eReset,
-  eZeroV,
+  eGetP,	// getP (prints position)
+  eZero,	// zero x, y, and z
+	eMove,	// move <x> <y> [z]
+	eServo,	// moveServo <0 | 1> (closed or open)
+	ePlant, // plant <x> <y>
+	eWater, // water <x> <y>
   eUnknown  
 } cmd;
 
@@ -84,7 +76,7 @@ void USART_Init(void)
 
 }
 
-int msg_ready(void)
+bool msg_ready(void)
 {
 	return (!(USART2->ISR & USART_ISR_RXNE)); //wait for hardware to set RXNE
 }
@@ -92,46 +84,87 @@ int msg_ready(void)
 void read_msg(void)
 {
 	char letter;
-	while(letter != '\n')
+	while(letter != '\r')
 	{
 		while(!(USART2->ISR & USART_ISR_RXNE)); //wait for hardware to set RXNE
 		letter = USART2->RDR; 									//reading RDR clears bit and sets to buffer
+		USART2->TDR = letter;		// write to TDR
+		while(!(USART2->ISR & USART_ISR_TC)); 	// wait until TC bit is set
+		USART2->ICR |= USART_ICR_TCCF;	// clear TC flag
+		if(letter != '\r')
+			strcat(msg, &letter);
+		else
+			strcat(msg, "\0");
 		msg_size++;
 	}
-	strcat(msg, "\0");
-	msg_size++;
+	print_uart("\r\n");
 }
 
-//cmd hashit(void)
-//{
-//	if(strcmp(msg, "?")) 						return eQ;
-//  if(strcmp(msg, ".")) 						return eSettings;
-//  if(strcmp(msg, "getP")) 				return eGetP;
-//  if(strcmp(msg, "setLighting")) return eSetLighting;
-//  if(strcmp(msg, "setVLimit")) return eSetVLimit;
-//  if(strcmp(msg, "setHLimit")) return eSetHLimit;
-//  if(strcmp(msg, "setVSpeed")) return eSetVSpeed; 
-//  if(strcmp(msg, "setHSpeed")) return eSetHSpeed; 
-//  if(strcmp(msg, "setTracking")) return eSetTracking;
-//  if(strcmp(msg, "runD")) return eRunD;
-//  if(strcmp(msg, "runU")) return eRunU;
-//  if(strcmp(msg, "moveH")) return eMoveH;
-//  if(strcmp(msg, "moveV")) return eMoveV;
-//  if(strcmp(msg, "end")) return eEnd;
-//  if(strcmp(msg,  "setZero")) return eSetZero;
-//  if(strcmp(msg,  "zeroV")) return eZeroV;  // eZeroV and reset do the same thing right now
-//  if(strcmp(msg,  "reset")) return eReset;
-//  if(strcmp(msg, "moveS")) return eMoveS;
-//  return eUnknown; // command not found
-//}
+void print_uart(char* text)	// for putty, add \r\n to end of messages to display correctly
+{
+	while(!(USART2->ISR & USART_ISR_TXE));	// wait until hardware sets TXE
+	int length = strlen(text);
+	for(int i = 0; i < length; i++)
+	{
+		USART2->TDR = text[i];		// write to TDR
+		for(int delay = 0; delay < 1000; delay++);	// give UART time to print
+	}
+	while(!(USART2->ISR & USART_ISR_TC)); 	// wait until TC bit is set
+	
+	USART2->ICR |= USART_ICR_TCCF;	// clear TC flag
+}
+
+cmd hashit(void)
+{
+	//char* tmp = msg;
+	// Check if command string contains
+	if(strstr(msg, "?")) 					return eQ;
+  if(strstr(msg, ".")) 					return eSettings;
+  if(strstr(msg, "getP")) 			return eGetP;
+	if(strstr(msg, "zero")) 			return eZero;
+	if(strstr(msg, "move")) 			return eMove;
+	if(strstr(msg, "servo")) 	return eServo;
+	if(strstr(msg, "plant")) 			return ePlant;
+  return eUnknown; // command not found
+}
 
 void handle_serial(void)
 {
-//	switch(hashit()){
-//    case eUnknown:
-//    default:
-//      break;     
-//  }
-//	strcpy(msg, "");
+	char* tmp = msg;
+	print_uart("CMD: ");
+	print_uart(msg);
+	print_uart("\r\n");
+	cmd hash_cmd = hashit();
+	switch(hash_cmd){
+		case eQ:
+			//print_commands();
+			break;
+		case eSettings:
+			//print_settings();
+			break;
+		case eGetP:
+			//print_uart(get_position());
+			break;
+		case eZero:
+			//zero();
+			break;
+		case eMove:
+			//move_handler();
+			break;
+		case eServo:
+			servo_handler();
+			break;
+		case ePlant:
+			//plant();
+			break;
+		case eWater:
+			//water();
+			break;
+    case eUnknown:
+    default:
+			print_uart("Command not found\r\n");
+      break;     
+  }
+	strcpy(msg, "");
 }
 
