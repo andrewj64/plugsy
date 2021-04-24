@@ -1,8 +1,28 @@
 #include "motor.h"
 #include "LCD.h"
 
+//TODO: These numbers are arbitrary. We need to test to discover the proper length.
+#define LOOPS_FOR_INCH_X 1000
+#define LOOPS_FOR_INCH_Y 1000
+
+int xPos = 0;
+int yPos = 0;
+int zPos = 0;
+
 volatile int max;
 uint8_t fullStep[4] = {0x9, 0xA, 0x6, 0x5};
+
+int getX(){
+	return xPos;
+}
+
+int getY(){
+	return yPos;
+}
+
+int getZ(){
+	return zPos;
+}
 
 void motor_init(void)
 {
@@ -45,7 +65,30 @@ void pulseZ(void)
 		
 }
 
-void pulseServo(void)
-{
+void move_handler(){
+	int params[2];
+	get_params(2, params);
 	
+	//TODO:Add error checking to see if getting params worked and there were the right number.
+	
+	moveXY(params[0], params[1]);
+}
+
+void moveXY(int x, int y){
+	//We could make this better by making in concurrent using a timer or systick or something
+	xPos += x;
+	yPos += y;
+	//Move X inches
+	for(int i = 0; i < x; i++){
+		for(int j = 0; j < LOOPS_FOR_INCH_X; j++){
+			pulseX();
+		}
+	}
+	//move y inches
+	for(int i = 0; i < y; i++){
+		for(int j = 0; j < LOOPS_FOR_INCH_Y; j++){
+			pulseY();
+		}
+	}
+	//TODO: do we want to add any error checking for motors?
 }

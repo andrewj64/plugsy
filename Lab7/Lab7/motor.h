@@ -7,10 +7,15 @@
 
 static int pos[3] = {0,0,0};
 
+int getX();
+int getY();
+int getZ();
 void motor_init(void);
 void set_speed(int speed);
 void pulseX(void);
 void pulseY(void);
 void pulseZ(void);
+void move_handler(void);
+void moveXY(int x, int y);
 
 #endif

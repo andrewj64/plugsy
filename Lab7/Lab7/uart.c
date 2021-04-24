@@ -149,7 +149,7 @@ void handle_serial(void)
 			//zero();
 			break;
 		case eMove:
-			//move_handler();
+			move_handler();
 			break;
 		case eServo:
 			servo_handler();
