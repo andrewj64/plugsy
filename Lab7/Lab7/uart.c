@@ -14,6 +14,7 @@ typedef enum cmds {
 	eMove,	// move <x> <y> [z]
 	eServo,	// moveServo <0 | 1> (closed or open)
 	ePlant, // plant <x> <y>
+	eWeed,  // weed <x> <y>
 	eWater, // water <x> <y>
   eUnknown  
 } cmd;
@@ -146,16 +147,19 @@ void handle_serial(void)
 			//print_uart(get_position());
 			break;
 		case eZero:
-			//zero();
+			zero();
 			break;
 		case eMove:
-			//move_handler();
+			move_handler();
 			break;
 		case eServo:
 			setServo();
 			break;
 		case ePlant:
-			//plant();
+			plant();
+			break;
+		case eWeed:
+			weed();
 			break;
 		case eWater:
 			//water();
