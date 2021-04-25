@@ -3,7 +3,7 @@
 #include "servo.h"
 #include "LCD.h"
 
-
+bool newCommand = true;
 
 // Commands enum
 typedef enum cmds {
@@ -79,6 +79,11 @@ void USART_Init(void)
 
 bool msg_ready(void)
 {
+	if(newCommand)
+	{
+		print_uart("> ");
+		newCommand = false;
+	}
 	return (!(USART2->ISR & USART_ISR_RXNE)); //wait for hardware to set RXNE
 }
 
@@ -170,6 +175,7 @@ void handle_serial(void)
       break;     
   }
 	strcpy(msg, "");
+	newCommand = true;
 }
 
 void get_params(int num_params, int* params)
