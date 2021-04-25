@@ -129,10 +129,10 @@ int main(void){
 	
 	
 	set_speed(200);
-	//set_servo(180);
 	print_uart("PLUGSY ready\r\n");
 	while(1)
 	{
+		//pulseServo();
 		LCD_DisplayString(toString(getReading()));
 		if(msg_ready())
 		{

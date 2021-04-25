@@ -4,6 +4,7 @@
 #define PERIOD 400
 volatile int count = 0;
 volatile int pulses = PERIOD;
+volatile int pulse = 20; // 20 -> 0, 30 -> 45
 
 
 
@@ -29,7 +30,7 @@ SysTick->CTRL |= SysTick_CTRL_ENABLE_Msk;
 
 void SysTick_Handler(void)
 {
-	if(pulses < 200)
+	if(pulses < 20)
 	{
 		if(count < pulse)	{
 			GPIOA->ODR |= GPIO_ODR_OD0;
@@ -47,9 +48,11 @@ void SysTick_Handler(void)
 	}
 }
 
-void pulse_servo(void)
+void pulseServo(int pwm)
 {
+	pulse = pwm;
 	pulses = 0;
+	count = 0;
 }
 
 //void setSec(uint32_t countTime)

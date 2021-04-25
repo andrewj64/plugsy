@@ -18,13 +18,13 @@ void servo_init(void)
 	GPIOA->MODER |=  0x0001U;			// set to output 01
 }
 
-void set_servo(int pos) 
-{
-	
-	//TIM3->CCR1 = 19999 + CONVERSION_FACTOR*pos;
-	high = pos;
-	low = 180 - pos;
-}
+//void setServo(int pos) 
+//{
+//	
+//	//TIM3->CCR1 = 19999 + CONVERSION_FACTOR*pos;
+//	high = pos;
+//	low = 180 - pos;
+//}
 
 void update_servo()
 {
@@ -66,37 +66,11 @@ void TIM3_IRQHandler()
 	TIM3->SR &= ~TIM_SR_UIF; // clear flag
 }
 
-void servo_handler(void)
-{
-//	int length = strlen(msg);
-//	char* pch;
-//	int arg = 0;
-//	char* buf = strdup(msg);
-//	pch = strtok(buf," ");
-//	while (pch != NULL)
-//  {
-//    pch = strtok (NULL, " ,.-");
-//		if(arg == 1)
-//		{
-//			if(strcmp(pch, "0") == 0)	
-//				close_servo();
-//			else if(strcmp(pch, "1") == 0)
-//				open_servo();
-//		}
-//		arg++;
-//  }
-//	free(buf);
-}
 
-void open_servo(void)
+void setServo(void)
 {
-	pulse = 30;
-	pulse_servo();
-}
-
-void close_servo(void)
-{
-	pulse = 20;
-	pulse_servo();
+	pulseServo(30);
+	for(int delay = 0; delay < 100000; delay++);
+	pulseServo(20);
 }
 

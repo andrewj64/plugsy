@@ -7,6 +7,6 @@
 
 void SysTick_Init(void);
 void SysTick_Handler(void);
-void pulse_servo(void);
+void pulseServo(int pwm);
 
 #endif

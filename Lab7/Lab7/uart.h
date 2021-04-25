@@ -16,5 +16,6 @@ bool msg_ready(void);
 void read_msg(void);
 void handle_serial(void);
 void print_uart(char* text);
+void get_params(int num_params, int* params);
 
 #endif

@@ -152,7 +152,7 @@ void handle_serial(void)
 			//move_handler();
 			break;
 		case eServo:
-			servo_handler();
+			setServo();
 			break;
 		case ePlant:
 			//plant();
@@ -168,3 +168,23 @@ void handle_serial(void)
 	strcpy(msg, "");
 }
 
+void get_params(int num_params, int* params)
+{
+	int length = strlen(msg);
+	char* pch;
+	char buf[100];
+	strncpy(buf, msg, sizeof(buf));
+	pch = strtok(buf," ,");	// get rid of command
+	for(int p = 0; p < num_params; p++)
+	{
+		pch = strtok(NULL," ,");	
+		if(pch == NULL)
+		{
+			if(p < num_params-1)
+				print_uart("Failed to get correct number of parameters\r\n");
+			break;
+		}
+		params[p] = atoi(pch);
+	}
+	
+}
