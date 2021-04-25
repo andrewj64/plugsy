@@ -138,6 +138,7 @@ int main(void){
 	
 	set_speed(200);
 	print_uart("PLUGSY ready\r\n");
+	//GPIOE->ODR &= ~GPIO_ODR_OD15;
 	while(1)
 	{
 		//pulseServo();
@@ -150,7 +151,7 @@ int main(void){
 
 		
 		//update_servo();
-		pulseX();
+		//pulseY();
 	}
 	
 }

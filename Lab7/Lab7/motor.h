@@ -19,6 +19,6 @@ void move_handler(void);
 void moveXY(int x, int y);
 void zero(void);
 void plant(void);
-void weed();
+void weed(void);
 
 #endif

@@ -1,5 +1,7 @@
 #include "motor.h"
 #include "LCD.h"
+#include "servo.h"
+#include "uart.h"
 
 //TODO: These numbers are arbitrary. We need to test to discover the proper length.
 #define LOOPS_FOR_INCH_X 1000
@@ -33,10 +35,16 @@ void motor_init(void)
 	GPIOB->MODER &= ~0xF0F0U;			// clear MODER
 	GPIOB->MODER |=  0x5050U;			// set to output 01
 	
+	// set PUPDR to pull-down
+	GPIOB->PUPDR &= ~(GPIO_PUPDR_PUPD2 | GPIO_PUPDR_PUPD3 | GPIO_PUPDR_PUPD6 | GPIO_PUPDR_PUPD7);
+	GPIOB->PUPDR |= (GPIO_PUPDR_PUPD2_1 | GPIO_PUPDR_PUPD3_1 | GPIO_PUPDR_PUPD6_1 | GPIO_PUPDR_PUPD7_1);
 	
 	//configure PE13,14,15 for Z, X, and Y directions respectively
-	GPIOB->MODER &= ~0xFC000000U;			// clear MODER
-	GPIOB->MODER |=  0x54000000U;			// set to output 01
+	GPIOE->MODER &= ~0xFC000000U;			// clear MODER
+	GPIOE->MODER |=  0x54000000U;			// set to output 01
+	
+	GPIOE->PUPDR &= ~(GPIO_PUPDR_PUPD13 | GPIO_PUPDR_PUPD14 | GPIO_PUPDR_PUPD15);
+	GPIOE->PUPDR |= (GPIO_PUPDR_PUPD13_1 | GPIO_PUPDR_PUPD14_1 | GPIO_PUPDR_PUPD15_1);
 }
 
 void set_speed(int speed)
@@ -150,6 +158,6 @@ void plant(){
 	GPIOE->ODR ^= GPIO_ODR_OD13;
 }
 
-void weed(){
+void weed(void){
 	// 420
 }

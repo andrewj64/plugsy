@@ -10,3 +10,8 @@
 .\objects\motor.o: C:\Keil_v5\ARM\PACK\Keil\STM32L4xx_DFP\2.4.0\Drivers\CMSIS\Device\ST\STM32L4xx\Include\system_stm32l4xx.h
 .\objects\motor.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
 .\objects\motor.o: LCD.h
+.\objects\motor.o: servo.h
+.\objects\motor.o: uart.h
+.\objects\motor.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\objects\motor.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\objects\motor.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\ctype.h

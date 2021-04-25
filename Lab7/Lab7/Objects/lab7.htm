@@ -3,11 +3,7 @@
 <title>Static Call Graph - [.\Objects\lab7.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\lab7.axf</H1><HR>
-<<<<<<< HEAD
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Sat Apr 24 19:22:02 2021
-=======
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Sat Apr 24 18:25:36 2021
->>>>>>> 1e6ea1e99577d6a78260da062cd12f90396dfd42
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Sat Apr 24 22:04:31 2021
 <BR><P>
 <H3>Maximum Stack Usage =        248 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -617,8 +613,6 @@ Global Symbols
 
 <P><STRONG><a name="[79]"></a>strncpy</STRONG> (Thumb, 86 bytes, Stack size 8 bytes, strncpy.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = strncpy
-<<<<<<< HEAD
-=======
 </UL>
 <BR>[Calls]<UL><LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr
 </UL>
@@ -631,38 +625,6 @@ Global Symbols
 
 <P><STRONG><a name="[d2]"></a>__rt_heap_expand$2region</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)
 
-<P><STRONG><a name="[75]"></a>__aeabi_errno_addr</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, rt_errno_addr_intlibspace.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_strtoul
-<LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strtol
-<LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;atoi
-</UL>
-
-<P><STRONG><a name="[d3]"></a>__errno$intlibspace</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, rt_errno_addr_intlibspace.o(.text), UNUSED)
-
-<P><STRONG><a name="[d4]"></a>__rt_errno_addr$intlibspace</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, rt_errno_addr_intlibspace.o(.text), UNUSED)
-
-<P><STRONG><a name="[76]"></a>strtol</STRONG> (Thumb, 112 bytes, Stack size 32 bytes, strtol.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = strtol &rArr; _strtoul
-</UL>
-<BR>[Calls]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_strtoul
-<LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_ctype_table
-<LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_errno_addr
-</UL>
-<BR>[Called By]<UL><LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;atoi
->>>>>>> 1e6ea1e99577d6a78260da062cd12f90396dfd42
-</UL>
-<BR>[Calls]<UL><LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr
-</UL>
-<BR>[Called By]<UL><LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_params
-</UL>
-
-<P><STRONG><a name="[d0]"></a>__use_two_region_memory</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)
-
-<P><STRONG><a name="[d1]"></a>__rt_heap_escrow$2region</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)
-
-<P><STRONG><a name="[d2]"></a>__rt_heap_expand$2region</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)
-
-<<<<<<< HEAD
 <P><STRONG><a name="[75]"></a>__aeabi_errno_addr</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, rt_errno_addr_intlibspace.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_strtoul
 <LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strtol
@@ -700,25 +662,6 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_memset_w
 </UL>
 
-=======
-<P><STRONG><a name="[78]"></a>__strtok_internal</STRONG> (Thumb, 64 bytes, Stack size 24 bytes, strtok_int.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 36<LI>Call Chain = __strtok_internal &rArr; strspn
-</UL>
-<BR>[Calls]<UL><LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strspn
-<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strcspn
-</UL>
-<BR>[Called By]<UL><LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strtok
-</UL>
-
-<P><STRONG><a name="[7a]"></a>__aeabi_memclr</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, rt_memclr.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strncpy
-</UL>
-
-<P><STRONG><a name="[7f]"></a>__rt_memclr</STRONG> (Thumb, 68 bytes, Stack size 0 bytes, rt_memclr.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_memset_w
-</UL>
-
->>>>>>> 1e6ea1e99577d6a78260da062cd12f90396dfd42
 <P><STRONG><a name="[d5]"></a>_memset</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rt_memclr.o(.text), UNUSED)
 
 <P><STRONG><a name="[d6]"></a>__user_libspace</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, libspace.o(.text), UNUSED)
@@ -754,11 +697,6 @@ Global Symbols
 
 <P><STRONG><a name="[7d]"></a>strspn</STRONG> (Thumb, 28 bytes, Stack size 12 bytes, strspn.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = strspn
-<<<<<<< HEAD
-</UL>
-<BR>[Called By]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__strtok_internal
-=======
->>>>>>> 1e6ea1e99577d6a78260da062cd12f90396dfd42
 </UL>
 <BR>[Called By]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__strtok_internal
 </UL>
@@ -767,17 +705,8 @@ Global Symbols
 
 <P><STRONG><a name="[d9]"></a>__aeabi_memclr8</STRONG> (Thumb, 0 bytes, Stack size 4 bytes, rt_memclr_w.o(.text), UNUSED)
 
-<<<<<<< HEAD
-<P><STRONG><a name="[d8]"></a>__aeabi_memclr4</STRONG> (Thumb, 0 bytes, Stack size 4 bytes, rt_memclr_w.o(.text), UNUSED)
-
-<P><STRONG><a name="[d9]"></a>__aeabi_memclr8</STRONG> (Thumb, 0 bytes, Stack size 4 bytes, rt_memclr_w.o(.text), UNUSED)
-
 <P><STRONG><a name="[da]"></a>__rt_memclr_w</STRONG> (Thumb, 78 bytes, Stack size 4 bytes, rt_memclr_w.o(.text), UNUSED)
 
-=======
-<P><STRONG><a name="[da]"></a>__rt_memclr_w</STRONG> (Thumb, 78 bytes, Stack size 4 bytes, rt_memclr_w.o(.text), UNUSED)
-
->>>>>>> 1e6ea1e99577d6a78260da062cd12f90396dfd42
 <P><STRONG><a name="[80]"></a>_memset_w</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rt_memclr_w.o(.text), UNUSED)
 <BR><BR>[Called By]<UL><LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_memclr
 </UL>
@@ -788,7 +717,6 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__user_perproc_libspace
 <LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__user_initial_stackheap
-<<<<<<< HEAD
 </UL>
 <BR>[Called By]<UL><LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_sh
 </UL>
@@ -802,27 +730,11 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_strtoul
 </UL>
 
-=======
-</UL>
-<BR>[Called By]<UL><LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_sh
-</UL>
-
-<P><STRONG><a name="[67]"></a>__rt_locale</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, rt_locale_intlibspace.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_ctype_table
-<LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_lib_init_lc_common
-</UL>
-
-<P><STRONG><a name="[81]"></a>_chval</STRONG> (Thumb, 28 bytes, Stack size 0 bytes, _chval.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_strtoul
-</UL>
-
->>>>>>> 1e6ea1e99577d6a78260da062cd12f90396dfd42
 <P><STRONG><a name="[6f]"></a>exit</STRONG> (Thumb, 18 bytes, Stack size 8 bytes, exit.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8 + Unknown Stack Size
 <LI>Call Chain = exit
 </UL>
 <BR>[Calls]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_exit
-<<<<<<< HEAD
 </UL>
 <BR>[Called By]<UL><LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_main
 </UL>
@@ -835,20 +747,6 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_exit_exit
 </UL>
 
-=======
-</UL>
-<BR>[Called By]<UL><LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_main
-</UL>
-
-<P><STRONG><a name="[ad]"></a>strcmp</STRONG> (Thumb, 128 bytes, Stack size 0 bytes, strcmpv7m.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_get_lc_ctype
-</UL>
-
-<P><STRONG><a name="[73]"></a>_sys_exit</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, sys_exit.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_exit_exit
-</UL>
-
->>>>>>> 1e6ea1e99577d6a78260da062cd12f90396dfd42
 <P><STRONG><a name="[db]"></a>__I$use$semihosting</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, use_no_semi.o(.text), UNUSED)
 
 <P><STRONG><a name="[dc]"></a>__use_no_semihosting_swi</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, use_no_semi.o(.text), UNUSED)
@@ -941,43 +839,6 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ADC1_Wakeup
 <LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__NVIC_EnableIRQ
-<<<<<<< HEAD
-</UL>
-<BR>[Called By]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-</UL>
-
-<P><STRONG><a name="[a3]"></a>getReading</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, soil.o(i.getReading))
-<BR><BR>[Called By]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-</UL>
-
-<P><STRONG><a name="[91]"></a>get_params</STRONG> (Thumb, 92 bytes, Stack size 128 bytes, uart.o(i.get_params))
-<BR><BR>[Stack]<UL><LI>Max Depth = 216<LI>Call Chain = get_params &rArr; atoi &rArr; strtol &rArr; _strtoul
-</UL>
-<BR>[Calls]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strncpy
-<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strlen
-<LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strtok
-<LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;atoi
-<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;print_uart
-</UL>
-<BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;plant
-<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;move_handler
-</UL>
-
-<P><STRONG><a name="[94]"></a>handle_serial</STRONG> (Thumb, 106 bytes, Stack size 16 bytes, uart.o(i.handle_serial))
-<BR><BR>[Stack]<UL><LI>Max Depth = 248<LI>Call Chain = handle_serial &rArr; plant &rArr; get_params &rArr; atoi &rArr; strtol &rArr; _strtoul
-</UL>
-<BR>[Calls]<UL><LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hashit
-<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;water
-<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setServo
-<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;zero
-<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;plant
-<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;move_handler
-<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;print_uart
-</UL>
-<BR>[Called By]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-</UL>
-
-=======
 </UL>
 <BR>[Called By]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -1003,9 +864,9 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 248<LI>Call Chain = handle_serial &rArr; plant &rArr; get_params &rArr; atoi &rArr; strtol &rArr; _strtoul
 </UL>
 <BR>[Calls]<UL><LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hashit
+<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;water
 <LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setServo
 <LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;zero
-<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;weed
 <LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;plant
 <LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;move_handler
 <LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;print_uart
@@ -1013,12 +874,10 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
->>>>>>> 1e6ea1e99577d6a78260da062cd12f90396dfd42
 <P><STRONG><a name="[95]"></a>hashit</STRONG> (Thumb, 104 bytes, Stack size 8 bytes, uart.o(i.hashit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = hashit &rArr; strstr
 </UL>
 <BR>[Calls]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strstr
-<<<<<<< HEAD
 </UL>
 <BR>[Called By]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;handle_serial
 </UL>
@@ -1027,13 +886,12 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[6e]"></a>main</STRONG> (Thumb, 180 bytes, Stack size 0 bytes, main.o(i.main))
+<P><STRONG><a name="[6e]"></a>main</STRONG> (Thumb, 176 bytes, Stack size 0 bytes, main.o(i.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 248<LI>Call Chain = main &rArr; handle_serial &rArr; plant &rArr; get_params &rArr; atoi &rArr; strtol &rArr; _strtoul
 </UL>
 <BR>[Calls]<UL><LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_speed
 <LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_init
 <LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;read_msg
-<LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pulseX
 <LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;print_uart
 <LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;msg_ready
 <LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_init
@@ -1052,15 +910,15 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_main
 </UL>
 
-<P><STRONG><a name="[9e]"></a>motor_init</STRONG> (Thumb, 62 bytes, Stack size 0 bytes, motor.o(i.motor_init))
+<P><STRONG><a name="[9e]"></a>motor_init</STRONG> (Thumb, 118 bytes, Stack size 0 bytes, motor.o(i.motor_init))
 <BR><BR>[Called By]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[a8]"></a>moveXY</STRONG> (Thumb, 148 bytes, Stack size 16 bytes, motor.o(i.moveXY))
+<P><STRONG><a name="[a7]"></a>moveXY</STRONG> (Thumb, 148 bytes, Stack size 16 bytes, motor.o(i.moveXY))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = moveXY
 </UL>
 <BR>[Calls]<UL><LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pulseY
-<LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pulseX
+<LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pulseX
 </UL>
 <BR>[Called By]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;zero
 <LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;plant
@@ -1071,80 +929,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 232<LI>Call Chain = move_handler &rArr; get_params &rArr; atoi &rArr; strtol &rArr; _strtoul
 </UL>
 <BR>[Calls]<UL><LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_params
-<LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;moveXY
-</UL>
-<BR>[Called By]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;handle_serial
-</UL>
-
-<P><STRONG><a name="[a5]"></a>msg_ready</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, uart.o(i.msg_ready))
-<BR><BR>[Called By]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-</UL>
-
-<P><STRONG><a name="[99]"></a>plant</STRONG> (Thumb, 100 bytes, Stack size 16 bytes, motor.o(i.plant))
-<BR><BR>[Stack]<UL><LI>Max Depth = 232<LI>Call Chain = plant &rArr; get_params &rArr; atoi &rArr; strtol &rArr; _strtoul
-</UL>
-<BR>[Calls]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setServo
-<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_params
-<LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pulseZ
-<LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;moveXY
-</UL>
-<BR>[Called By]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;handle_serial
-</UL>
-
-=======
-</UL>
-<BR>[Called By]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;handle_serial
-</UL>
-
-<P><STRONG><a name="[9d]"></a>keypad_pin_init</STRONG> (Thumb, 64 bytes, Stack size 0 bytes, keypad.o(i.keypad_pin_init))
-<BR><BR>[Called By]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-</UL>
-
-<P><STRONG><a name="[6e]"></a>main</STRONG> (Thumb, 180 bytes, Stack size 0 bytes, main.o(i.main))
-<BR><BR>[Stack]<UL><LI>Max Depth = 248<LI>Call Chain = main &rArr; handle_serial &rArr; plant &rArr; get_params &rArr; atoi &rArr; strtol &rArr; _strtoul
-</UL>
-<BR>[Calls]<UL><LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_speed
-<LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_init
-<LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;read_msg
-<LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pulseX
-<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;print_uart
-<LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;msg_ready
-<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_init
-<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;keypad_pin_init
-<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;handle_serial
-<LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getReading
-<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;adcInit
-<LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Init
-<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM3_Init
-<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM2_Init
-<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysTick_Init
-<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Initialization
-<LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayString
-<LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;toString
-</UL>
-<BR>[Called By]<UL><LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_main
-</UL>
-
-<P><STRONG><a name="[9e]"></a>motor_init</STRONG> (Thumb, 62 bytes, Stack size 0 bytes, motor.o(i.motor_init))
-<BR><BR>[Called By]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-</UL>
-
-<P><STRONG><a name="[a8]"></a>moveXY</STRONG> (Thumb, 148 bytes, Stack size 16 bytes, motor.o(i.moveXY))
-<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = moveXY
-</UL>
-<BR>[Calls]<UL><LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pulseY
-<LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pulseX
-</UL>
-<BR>[Called By]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;zero
-<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;plant
-<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;move_handler
-</UL>
-
-<P><STRONG><a name="[97]"></a>move_handler</STRONG> (Thumb, 20 bytes, Stack size 16 bytes, motor.o(i.move_handler))
-<BR><BR>[Stack]<UL><LI>Max Depth = 232<LI>Call Chain = move_handler &rArr; get_params &rArr; atoi &rArr; strtol &rArr; _strtoul
-</UL>
-<BR>[Calls]<UL><LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_params
-<LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;moveXY
+<LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;moveXY
 </UL>
 <BR>[Called By]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;handle_serial
 </UL>
@@ -1163,42 +948,15 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setServo
 <LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_params
 <LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pulseZ
-<LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;moveXY
+<LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;moveXY
 </UL>
 <BR>[Called By]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;handle_serial
 </UL>
 
->>>>>>> 1e6ea1e99577d6a78260da062cd12f90396dfd42
 <P><STRONG><a name="[93]"></a>print_uart</STRONG> (Thumb, 88 bytes, Stack size 16 bytes, uart.o(i.print_uart))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = print_uart &rArr; strlen
 </UL>
 <BR>[Calls]<UL><LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strlen
-<<<<<<< HEAD
-</UL>
-<BR>[Called By]<UL><LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_params
-<LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;read_msg
-<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;handle_serial
-<LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-</UL>
-
-<P><STRONG><a name="[ac]"></a>pulseServo</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, systick.o(i.pulseServo))
-<BR><BR>[Called By]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setServo
-</UL>
-
-<P><STRONG><a name="[a7]"></a>pulseX</STRONG> (Thumb, 34 bytes, Stack size 0 bytes, motor.o(i.pulseX))
-<BR><BR>[Called By]<UL><LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;moveXY
-<LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-</UL>
-
-<P><STRONG><a name="[a9]"></a>pulseY</STRONG> (Thumb, 34 bytes, Stack size 0 bytes, motor.o(i.pulseY))
-<BR><BR>[Called By]<UL><LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;moveXY
-</UL>
-
-<P><STRONG><a name="[aa]"></a>pulseZ</STRONG> (Thumb, 34 bytes, Stack size 0 bytes, motor.o(i.pulseZ))
-<BR><BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;plant
-</UL>
-
-=======
 </UL>
 <BR>[Called By]<UL><LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_params
 <LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;read_msg
@@ -1211,20 +969,18 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setServo
 </UL>
 
-<P><STRONG><a name="[a7]"></a>pulseX</STRONG> (Thumb, 34 bytes, Stack size 0 bytes, motor.o(i.pulseX))
-<BR><BR>[Called By]<UL><LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;moveXY
-<LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+<P><STRONG><a name="[a8]"></a>pulseX</STRONG> (Thumb, 34 bytes, Stack size 0 bytes, motor.o(i.pulseX))
+<BR><BR>[Called By]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;moveXY
 </UL>
 
 <P><STRONG><a name="[a9]"></a>pulseY</STRONG> (Thumb, 34 bytes, Stack size 0 bytes, motor.o(i.pulseY))
-<BR><BR>[Called By]<UL><LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;moveXY
+<BR><BR>[Called By]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;moveXY
 </UL>
 
 <P><STRONG><a name="[aa]"></a>pulseZ</STRONG> (Thumb, 34 bytes, Stack size 0 bytes, motor.o(i.pulseZ))
 <BR><BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;plant
 </UL>
 
->>>>>>> 1e6ea1e99577d6a78260da062cd12f90396dfd42
 <P><STRONG><a name="[a6]"></a>read_msg</STRONG> (Thumb, 120 bytes, Stack size 8 bytes, uart.o(i.read_msg))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = read_msg &rArr; print_uart &rArr; strlen
 </UL>
@@ -1257,18 +1013,14 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<<<<<<< HEAD
 <P><STRONG><a name="[9a]"></a>water</STRONG> (Thumb, 38 bytes, Stack size 0 bytes, soil.o(i.water))
-=======
-<P><STRONG><a name="[9a]"></a>weed</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, motor.o(i.weed))
->>>>>>> 1e6ea1e99577d6a78260da062cd12f90396dfd42
 <BR><BR>[Called By]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;handle_serial
 </UL>
 
 <P><STRONG><a name="[96]"></a>zero</STRONG> (Thumb, 20 bytes, Stack size 4 bytes, motor.o(i.zero))
 <BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = zero &rArr; moveXY
 </UL>
-<BR>[Calls]<UL><LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;moveXY
+<BR>[Calls]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;moveXY
 </UL>
 <BR>[Called By]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;handle_serial
 </UL>
