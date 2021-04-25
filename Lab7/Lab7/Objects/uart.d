@@ -7,7 +7,7 @@
 .\objects\uart.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.3.0\CMSIS\Include\cmsis_compiler.h
 .\objects\uart.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.3.0\CMSIS\Include\cmsis_armcc.h
 .\objects\uart.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.3.0\CMSIS\Include\mpu_armv7.h
-.\objects\uart.o: C:\Keil_v5\ARM\PACK\Keil\STM32L4xx_DFP\2.0.0\Drivers\CMSIS\Device\ST\STM32L4xx\Include\system_stm32l4xx.h
+.\objects\uart.o: C:\Keil_v5\ARM\PACK\Keil\STM32L4xx_DFP\2.4.0\Drivers\CMSIS\Device\ST\STM32L4xx\Include\system_stm32l4xx.h
 .\objects\uart.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\uart.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 .\objects\uart.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\ctype.h
@@ -15,3 +15,4 @@
 .\objects\uart.o: motor.h
 .\objects\uart.o: servo.h
 .\objects\uart.o: LCD.h
+.\objects\uart.o: soil.h

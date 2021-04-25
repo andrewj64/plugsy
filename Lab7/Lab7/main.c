@@ -106,9 +106,17 @@ int main(void){
 	motor_init();   	//PB7  for X direction
 										//PB6 for Y direction
 										//PB 3 for Z direction
-	servo_init();
+	
+	/* 
+		We still need to assign pins for
+			3 soil sensors(if we want to do four. Maybe we should just have 1 as a proof of concept)
+			
+	*/
+	
+	
+	servo_init(); //PA0 for pulse
 	USART_Init();
-	adcInit(); //uses PA1
+	adcInit(); //uses PA1 for a soil sensor
 	TIM2_Init();
 	TIM3_Init();
 	
@@ -117,7 +125,7 @@ int main(void){
 	
 	// GPIO Mode: Input(00), Output (01),
 	// AF(10), Analog (11)
-	GPIOE->MODER &= ~0x30000U;		// clear PE8 MODER (buzzer)
+	GPIOE->MODER &= ~0x30000U;			// clear PE8 MODER (water pump)
 	GPIOE->MODER |=  0x10000U;			// set PE8 to output
 	
 	

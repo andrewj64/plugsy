@@ -4,7 +4,7 @@
 #define PERIOD 400
 volatile int count = 0;
 volatile int pulses = PERIOD;
-volatile int pulse = 20; // 20 -> 0, 30 -> 45
+volatile int pulse = 30; // 20 -> 0, 30 -> 45
 
 
 

@@ -166,3 +166,9 @@ uint32_t getReading()
 	return reading;
 }
 
+void water(){
+	GPIOE->ODR ^= GPIO_ODR_OD8;
+	//TODO: does this actually get any water through?
+	for(int delay; delay < 20000; delay++);
+	GPIOE->ODR ^= GPIO_ODR_OD15;
+}

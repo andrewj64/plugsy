@@ -7,4 +7,5 @@ void TIM2_Init(void);
 void TIM2_IRQHandler(void);
 void TIM3_Init(void);
 uint32_t getReading(void);
+void water(void);
 

@@ -2,6 +2,7 @@
 #include "motor.h"
 #include "servo.h"
 #include "LCD.h"
+#include "soil.h"
 
 
 
@@ -159,10 +160,10 @@ void handle_serial(void)
 			plant();
 			break;
 		case eWeed:
-			weed();
+			//weed();
 			break;
 		case eWater:
-			//water();
+			water();
 			break;
     case eUnknown:
     default:
