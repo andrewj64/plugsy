@@ -137,14 +137,8 @@ void plant(){
 	moveXY(-1,0);
 	
 	//open servo for just a sec
-	setServo(1);
-	
-	//TODO: need to test to see how long to keep the servo open
-	for(int delay; delay < 1000; delay++){};
-		
-	//close that servo! Before all the seeds get away!!
-	setServo(0);
-		
+	setServo();
+
 	moveXY(1,0);
 	//change Z direction
 	GPIOE->ODR ^= GPIO_ODR_OD13;
@@ -157,5 +151,5 @@ void plant(){
 }
 
 void weed(){
-	
+	// 420
 }
