@@ -85,7 +85,7 @@ bool msg_ready(void)
 		print_uart("> ");
 		newCommand = false;
 	}
-	return (!(USART2->ISR & USART_ISR_RXNE)); //wait for hardware to set RXNE
+	return ((USART2->ISR & USART_ISR_RXNE)); //wait for hardware to set RXNE
 }
 
 void read_msg(void)
@@ -130,7 +130,8 @@ cmd hashit(void)
   if(strstr(msg, "getP")) 			return eGetP;
 	if(strstr(msg, "zero")) 			return eZero;
 	if(strstr(msg, "move")) 			return eMove;
-	if(strstr(msg, "servo")) 	return eServo;
+	if(strstr(msg, "water")) 			return eWater;
+	if(strstr(msg, "servo")) 		return eServo;
 	if(strstr(msg, "plant")) 			return ePlant;
   return eUnknown; // command not found
 }

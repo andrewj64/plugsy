@@ -35,7 +35,7 @@ Section Cross References
     startup_stm32l476xx.o(.text) refers to __main.o(!!!main) for __main
     startup_stm32l476xx.o(.text) refers to startup_stm32l476xx.o(HEAP) for Heap_Mem
     startup_stm32l476xx.o(.text) refers to startup_stm32l476xx.o(STACK) for Stack_Mem
-    systick.o(i.SysTick_Handler) refers to systick.o(.data) for pulses
+    systick.o(i.SysTick_Handler) refers to systick.o(.data) for count
     systick.o(i.pulseServo) refers to systick.o(.data) for pulse
     keypad.o(i.keypad_scan) refers to keypad.o(.data) for key_map
     lcd.o(i.LCD_Conv_Char_Seg) refers to lcd.o(.constdata) for NumberMap
@@ -446,46 +446,46 @@ Image Symbol Table
     i.LCD_PIN_Init                           0x08000ab0   Section        0  lcd.o(i.LCD_PIN_Init)
     i.LCD_WriteChar                          0x08000bc4   Section        0  lcd.o(i.LCD_WriteChar)
     i.SysTick_Handler                        0x08001368   Section        0  systick.o(i.SysTick_Handler)
-    i.SysTick_Init                           0x080013d0   Section        0  systick.o(i.SysTick_Init)
-    i.TIM2_IRQHandler                        0x08001430   Section        0  soil.o(i.TIM2_IRQHandler)
-    i.TIM2_Init                              0x08001450   Section        0  soil.o(i.TIM2_Init)
-    i.TIM3_IRQHandler                        0x080014a0   Section        0  servo.o(i.TIM3_IRQHandler)
-    i.TIM3_Init                              0x080014b4   Section        0  servo.o(i.TIM3_Init)
-    i.USART_Init                             0x08001524   Section        0  uart.o(i.USART_Init)
-    i.__NVIC_EnableIRQ                       0x0800163c   Section        0  soil.o(i.__NVIC_EnableIRQ)
-    __NVIC_EnableIRQ                         0x0800163d   Thumb Code    26  soil.o(i.__NVIC_EnableIRQ)
-    i.adcInit                                0x08001658   Section        0  soil.o(i.adcInit)
-    i.getReading                             0x080017cc   Section        0  soil.o(i.getReading)
-    i.get_params                             0x080017d8   Section        0  uart.o(i.get_params)
-    i.handle_serial                          0x0800186c   Section        0  uart.o(i.handle_serial)
-    i.hashit                                 0x08001908   Section        0  uart.o(i.hashit)
-    i.keypad_pin_init                        0x080019a4   Section        0  keypad.o(i.keypad_pin_init)
-    i.main                                   0x080019ec   Section        0  main.o(i.main)
-    i.motor_init                             0x08001ab4   Section        0  motor.o(i.motor_init)
-    i.moveXY                                 0x08001b38   Section        0  motor.o(i.moveXY)
-    i.move_handler                           0x08001bd8   Section        0  motor.o(i.move_handler)
-    i.msg_ready                              0x08001bec   Section        0  uart.o(i.msg_ready)
-    i.plant                                  0x08001c18   Section        0  motor.o(i.plant)
-    i.print_uart                             0x08001c80   Section        0  uart.o(i.print_uart)
-    i.pulseServo                             0x08001cdc   Section        0  systick.o(i.pulseServo)
-    i.pulseX                                 0x08001cf8   Section        0  motor.o(i.pulseX)
-    i.pulseY                                 0x08001d24   Section        0  motor.o(i.pulseY)
-    i.pulseZ                                 0x08001d50   Section        0  motor.o(i.pulseZ)
-    i.read_msg                               0x08001d7c   Section        0  uart.o(i.read_msg)
-    i.servo_init                             0x08001e08   Section        0  servo.o(i.servo_init)
-    i.setServo                               0x08001e34   Section        0  servo.o(i.setServo)
-    i.set_speed                              0x08001e54   Section        0  motor.o(i.set_speed)
-    i.toString                               0x08001e60   Section        0  main.o(i.toString)
-    i.water                                  0x08001eb0   Section        0  soil.o(i.water)
-    i.zero                                   0x08001edc   Section        0  motor.o(i.zero)
-    locale$$code                             0x08001ef8   Section       44  lc_ctype_c.o(locale$$code)
-    x$fpl$fpinit                             0x08001f24   Section       10  fpinit.o(x$fpl$fpinit)
-    $v0                                      0x08001f24   Number         0  fpinit.o(x$fpl$fpinit)
-    .constdata                               0x08001f2e   Section       72  lcd.o(.constdata)
-    locale$$data                             0x08001f98   Section      272  lc_ctype_c.o(locale$$data)
-    __lcctype_c_name                         0x08001f9c   Data           2  lc_ctype_c.o(locale$$data)
-    __lcctype_c_start                        0x08001fa4   Data           0  lc_ctype_c.o(locale$$data)
-    __lcctype_c_end                          0x080020a8   Data           0  lc_ctype_c.o(locale$$data)
+    i.SysTick_Init                           0x080013c8   Section        0  systick.o(i.SysTick_Init)
+    i.TIM2_IRQHandler                        0x08001428   Section        0  soil.o(i.TIM2_IRQHandler)
+    i.TIM2_Init                              0x08001448   Section        0  soil.o(i.TIM2_Init)
+    i.TIM3_IRQHandler                        0x08001498   Section        0  servo.o(i.TIM3_IRQHandler)
+    i.TIM3_Init                              0x080014ac   Section        0  servo.o(i.TIM3_Init)
+    i.USART_Init                             0x0800151c   Section        0  uart.o(i.USART_Init)
+    i.__NVIC_EnableIRQ                       0x08001634   Section        0  soil.o(i.__NVIC_EnableIRQ)
+    __NVIC_EnableIRQ                         0x08001635   Thumb Code    26  soil.o(i.__NVIC_EnableIRQ)
+    i.adcInit                                0x08001650   Section        0  soil.o(i.adcInit)
+    i.getReading                             0x080017c4   Section        0  soil.o(i.getReading)
+    i.get_params                             0x080017d0   Section        0  uart.o(i.get_params)
+    i.handle_serial                          0x08001864   Section        0  uart.o(i.handle_serial)
+    i.hashit                                 0x08001900   Section        0  uart.o(i.hashit)
+    i.keypad_pin_init                        0x080019b4   Section        0  keypad.o(i.keypad_pin_init)
+    i.main                                   0x080019fc   Section        0  main.o(i.main)
+    i.motor_init                             0x08001aa4   Section        0  motor.o(i.motor_init)
+    i.moveXY                                 0x08001b28   Section        0  motor.o(i.moveXY)
+    i.move_handler                           0x08001bc8   Section        0  motor.o(i.move_handler)
+    i.msg_ready                              0x08001bdc   Section        0  uart.o(i.msg_ready)
+    i.plant                                  0x08001c08   Section        0  motor.o(i.plant)
+    i.print_uart                             0x08001c70   Section        0  uart.o(i.print_uart)
+    i.pulseServo                             0x08001ccc   Section        0  systick.o(i.pulseServo)
+    i.pulseX                                 0x08001ce8   Section        0  motor.o(i.pulseX)
+    i.pulseY                                 0x08001d14   Section        0  motor.o(i.pulseY)
+    i.pulseZ                                 0x08001d40   Section        0  motor.o(i.pulseZ)
+    i.read_msg                               0x08001d6c   Section        0  uart.o(i.read_msg)
+    i.servo_init                             0x08001df8   Section        0  servo.o(i.servo_init)
+    i.setServo                               0x08001e24   Section        0  servo.o(i.setServo)
+    i.set_speed                              0x08001e44   Section        0  motor.o(i.set_speed)
+    i.toString                               0x08001e50   Section        0  main.o(i.toString)
+    i.water                                  0x08001ea0   Section        0  soil.o(i.water)
+    i.zero                                   0x08001ecc   Section        0  motor.o(i.zero)
+    locale$$code                             0x08001ee8   Section       44  lc_ctype_c.o(locale$$code)
+    x$fpl$fpinit                             0x08001f14   Section       10  fpinit.o(x$fpl$fpinit)
+    $v0                                      0x08001f14   Number         0  fpinit.o(x$fpl$fpinit)
+    .constdata                               0x08001f1e   Section       72  lcd.o(.constdata)
+    locale$$data                             0x08001f88   Section      272  lc_ctype_c.o(locale$$data)
+    __lcctype_c_name                         0x08001f8c   Data           2  lc_ctype_c.o(locale$$data)
+    __lcctype_c_start                        0x08001f94   Data           0  lc_ctype_c.o(locale$$data)
+    __lcctype_c_end                          0x08002098   Data           0  lc_ctype_c.o(locale$$data)
     .data                                    0x20000000   Section        8  main.o(.data)
     msg_size                                 0x20000000   Data           4  main.o(.data)
     numString                                0x20000004   Data           4  main.o(.data)
@@ -546,7 +546,7 @@ Image Symbol Table
     Image$$RW_IRAM1$$RW$$Length              0x0000003c   Number         0  anon$$obj.o ABSOLUTE
     __Vectors_Size                           0x00000188   Number         0  startup_stm32l476xx.o ABSOLUTE
     Image$$RW_IRAM1$$ZI$$Length              0x00000864   Number         0  anon$$obj.o ABSOLUTE
-    Image$$ER_IROM1$$RO$$Length              0x000020a8   Number         0  anon$$obj.o ABSOLUTE
+    Image$$ER_IROM1$$RO$$Length              0x00002098   Number         0  anon$$obj.o ABSOLUTE
     Image$$ER_IROM1$$RO$$Base                0x08000000   Number         0  anon$$obj.o ABSOLUTE
     Load$$ER_IROM1$$Base                     0x08000000   Number         0  anon$$obj.o ABSOLUTE
     __Vectors                                0x08000000   Data           4  startup_stm32l476xx.o(RESET)
@@ -735,52 +735,52 @@ Image Symbol Table
     LCD_Initialization                       0x08000a9d   Thumb Code    20  lcd.o(i.LCD_Initialization)
     LCD_PIN_Init                             0x08000ab1   Thumb Code   218  lcd.o(i.LCD_PIN_Init)
     LCD_WriteChar                            0x08000bc5   Thumb Code  1946  lcd.o(i.LCD_WriteChar)
-    SysTick_Handler                          0x08001369   Thumb Code    90  systick.o(i.SysTick_Handler)
-    SysTick_Init                             0x080013d1   Thumb Code    88  systick.o(i.SysTick_Init)
-    TIM2_IRQHandler                          0x08001431   Thumb Code    26  soil.o(i.TIM2_IRQHandler)
-    TIM2_Init                                0x08001451   Thumb Code    74  soil.o(i.TIM2_Init)
-    TIM3_IRQHandler                          0x080014a1   Thumb Code    14  servo.o(i.TIM3_IRQHandler)
-    TIM3_Init                                0x080014b5   Thumb Code   104  servo.o(i.TIM3_Init)
-    USART_Init                               0x08001525   Thumb Code   266  uart.o(i.USART_Init)
-    adcInit                                  0x08001659   Thumb Code   350  soil.o(i.adcInit)
-    getReading                               0x080017cd   Thumb Code     6  soil.o(i.getReading)
-    get_params                               0x080017d9   Thumb Code    92  uart.o(i.get_params)
-    handle_serial                            0x0800186d   Thumb Code   112  uart.o(i.handle_serial)
-    hashit                                   0x08001909   Thumb Code   104  uart.o(i.hashit)
-    keypad_pin_init                          0x080019a5   Thumb Code    64  keypad.o(i.keypad_pin_init)
-    main                                     0x080019ed   Thumb Code   176  main.o(i.main)
-    motor_init                               0x08001ab5   Thumb Code   118  motor.o(i.motor_init)
-    moveXY                                   0x08001b39   Thumb Code   148  motor.o(i.moveXY)
-    move_handler                             0x08001bd9   Thumb Code    20  motor.o(i.move_handler)
-    msg_ready                                0x08001bed   Thumb Code    32  uart.o(i.msg_ready)
-    plant                                    0x08001c19   Thumb Code   100  motor.o(i.plant)
-    print_uart                               0x08001c81   Thumb Code    88  uart.o(i.print_uart)
-    pulseServo                               0x08001cdd   Thumb Code    16  systick.o(i.pulseServo)
-    pulseX                                   0x08001cf9   Thumb Code    34  motor.o(i.pulseX)
-    pulseY                                   0x08001d25   Thumb Code    34  motor.o(i.pulseY)
-    pulseZ                                   0x08001d51   Thumb Code    34  motor.o(i.pulseZ)
-    read_msg                                 0x08001d7d   Thumb Code   120  uart.o(i.read_msg)
-    servo_init                               0x08001e09   Thumb Code    40  servo.o(i.servo_init)
-    setServo                                 0x08001e35   Thumb Code    28  servo.o(i.setServo)
-    set_speed                                0x08001e55   Thumb Code     6  motor.o(i.set_speed)
-    toString                                 0x08001e61   Thumb Code    74  main.o(i.toString)
-    water                                    0x08001eb1   Thumb Code    38  soil.o(i.water)
-    zero                                     0x08001edd   Thumb Code    20  motor.o(i.zero)
-    _get_lc_ctype                            0x08001ef9   Thumb Code    44  lc_ctype_c.o(locale$$code)
-    _fp_init                                 0x08001f25   Thumb Code    10  fpinit.o(x$fpl$fpinit)
-    __fplib_config_fpu_vfp                   0x08001f2d   Thumb Code     0  fpinit.o(x$fpl$fpinit)
-    __fplib_config_pureend_doubles           0x08001f2d   Thumb Code     0  fpinit.o(x$fpl$fpinit)
-    CapLetterMap                             0x08001f2e   Data          52  lcd.o(.constdata)
-    NumberMap                                0x08001f62   Data          20  lcd.o(.constdata)
-    Region$$Table$$Base                      0x08001f78   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x08001f98   Number         0  anon$$obj.o(Region$$Table)
-    __ctype                                  0x08001fa5   Data           0  lc_ctype_c.o(locale$$data)
-    Image$$ER_IROM1$$RO$$Limit               0x080020a8   Number         0  anon$$obj.o ABSOLUTE
-    Image$$ER_IROM1$$RW$$Base                0x080020a8   Number         0  anon$$obj.o ABSOLUTE
-    Image$$ER_IROM1$$RW$$Limit               0x080020a8   Number         0  anon$$obj.o ABSOLUTE
-    Image$$ER_IROM1$$ZI$$Base                0x080020a8   Number         0  anon$$obj.o ABSOLUTE
-    Image$$ER_IROM1$$ZI$$Limit               0x080020a8   Number         0  anon$$obj.o ABSOLUTE
-    Load$$RW_IRAM1$$Base                     0x080020a8   Number         0  anon$$obj.o ABSOLUTE
+    SysTick_Handler                          0x08001369   Thumb Code    82  systick.o(i.SysTick_Handler)
+    SysTick_Init                             0x080013c9   Thumb Code    88  systick.o(i.SysTick_Init)
+    TIM2_IRQHandler                          0x08001429   Thumb Code    26  soil.o(i.TIM2_IRQHandler)
+    TIM2_Init                                0x08001449   Thumb Code    74  soil.o(i.TIM2_Init)
+    TIM3_IRQHandler                          0x08001499   Thumb Code    14  servo.o(i.TIM3_IRQHandler)
+    TIM3_Init                                0x080014ad   Thumb Code   104  servo.o(i.TIM3_Init)
+    USART_Init                               0x0800151d   Thumb Code   266  uart.o(i.USART_Init)
+    adcInit                                  0x08001651   Thumb Code   350  soil.o(i.adcInit)
+    getReading                               0x080017c5   Thumb Code     6  soil.o(i.getReading)
+    get_params                               0x080017d1   Thumb Code    92  uart.o(i.get_params)
+    handle_serial                            0x08001865   Thumb Code   112  uart.o(i.handle_serial)
+    hashit                                   0x08001901   Thumb Code   118  uart.o(i.hashit)
+    keypad_pin_init                          0x080019b5   Thumb Code    64  keypad.o(i.keypad_pin_init)
+    main                                     0x080019fd   Thumb Code   142  main.o(i.main)
+    motor_init                               0x08001aa5   Thumb Code   118  motor.o(i.motor_init)
+    moveXY                                   0x08001b29   Thumb Code   148  motor.o(i.moveXY)
+    move_handler                             0x08001bc9   Thumb Code    20  motor.o(i.move_handler)
+    msg_ready                                0x08001bdd   Thumb Code    30  uart.o(i.msg_ready)
+    plant                                    0x08001c09   Thumb Code   100  motor.o(i.plant)
+    print_uart                               0x08001c71   Thumb Code    88  uart.o(i.print_uart)
+    pulseServo                               0x08001ccd   Thumb Code    16  systick.o(i.pulseServo)
+    pulseX                                   0x08001ce9   Thumb Code    34  motor.o(i.pulseX)
+    pulseY                                   0x08001d15   Thumb Code    34  motor.o(i.pulseY)
+    pulseZ                                   0x08001d41   Thumb Code    34  motor.o(i.pulseZ)
+    read_msg                                 0x08001d6d   Thumb Code   120  uart.o(i.read_msg)
+    servo_init                               0x08001df9   Thumb Code    40  servo.o(i.servo_init)
+    setServo                                 0x08001e25   Thumb Code    28  servo.o(i.setServo)
+    set_speed                                0x08001e45   Thumb Code     6  motor.o(i.set_speed)
+    toString                                 0x08001e51   Thumb Code    74  main.o(i.toString)
+    water                                    0x08001ea1   Thumb Code    38  soil.o(i.water)
+    zero                                     0x08001ecd   Thumb Code    20  motor.o(i.zero)
+    _get_lc_ctype                            0x08001ee9   Thumb Code    44  lc_ctype_c.o(locale$$code)
+    _fp_init                                 0x08001f15   Thumb Code    10  fpinit.o(x$fpl$fpinit)
+    __fplib_config_fpu_vfp                   0x08001f1d   Thumb Code     0  fpinit.o(x$fpl$fpinit)
+    __fplib_config_pureend_doubles           0x08001f1d   Thumb Code     0  fpinit.o(x$fpl$fpinit)
+    CapLetterMap                             0x08001f1e   Data          52  lcd.o(.constdata)
+    NumberMap                                0x08001f52   Data          20  lcd.o(.constdata)
+    Region$$Table$$Base                      0x08001f68   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x08001f88   Number         0  anon$$obj.o(Region$$Table)
+    __ctype                                  0x08001f95   Data           0  lc_ctype_c.o(locale$$data)
+    Image$$ER_IROM1$$RO$$Limit               0x08002098   Number         0  anon$$obj.o ABSOLUTE
+    Image$$ER_IROM1$$RW$$Base                0x08002098   Number         0  anon$$obj.o ABSOLUTE
+    Image$$ER_IROM1$$RW$$Limit               0x08002098   Number         0  anon$$obj.o ABSOLUTE
+    Image$$ER_IROM1$$ZI$$Base                0x08002098   Number         0  anon$$obj.o ABSOLUTE
+    Image$$ER_IROM1$$ZI$$Limit               0x08002098   Number         0  anon$$obj.o ABSOLUTE
+    Load$$RW_IRAM1$$Base                     0x08002098   Number         0  anon$$obj.o ABSOLUTE
     Image$$RW_IRAM1$$Base                    0x20000000   Number         0  anon$$obj.o ABSOLUTE
     Image$$RW_IRAM1$$RO$$Base                0x20000000   Number         0  anon$$obj.o ABSOLUTE
     Image$$RW_IRAM1$$RW$$Base                0x20000000   Number         0  anon$$obj.o ABSOLUTE
@@ -809,9 +809,9 @@ Memory Map of the image
 
   Image Entry point : 0x08000189
 
-  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x000020e4, Max: 0x00100000, ABSOLUTE)
+  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x000020d4, Max: 0x00100000, ABSOLUTE)
 
-    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x000020a8, Max: 0x00100000, ABSOLUTE)
+    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x00002098, Max: 0x00100000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -904,61 +904,61 @@ Memory Map of the image
     0x08000a9c   0x08000a9c   0x00000014   Code   RO          188    i.LCD_Initialization  lcd.o
     0x08000ab0   0x08000ab0   0x00000114   Code   RO          189    i.LCD_PIN_Init      lcd.o
     0x08000bc4   0x08000bc4   0x000007a4   Code   RO          190    i.LCD_WriteChar     lcd.o
-    0x08001368   0x08001368   0x00000068   Code   RO          106    i.SysTick_Handler   systick.o
-    0x080013d0   0x080013d0   0x00000060   Code   RO          107    i.SysTick_Init      systick.o
-    0x08001430   0x08001430   0x00000020   Code   RO          362    i.TIM2_IRQHandler   soil.o
-    0x08001450   0x08001450   0x00000050   Code   RO          363    i.TIM2_Init         soil.o
-    0x080014a0   0x080014a0   0x00000014   Code   RO          432    i.TIM3_IRQHandler   servo.o
-    0x080014b4   0x080014b4   0x00000070   Code   RO          433    i.TIM3_Init         servo.o
-    0x08001524   0x08001524   0x00000118   Code   RO          488    i.USART_Init        uart.o
-    0x0800163c   0x0800163c   0x0000001a   Code   RO          364    i.__NVIC_EnableIRQ  soil.o
-    0x08001656   0x08001656   0x00000002   PAD
-    0x08001658   0x08001658   0x00000174   Code   RO          365    i.adcInit           soil.o
-    0x080017cc   0x080017cc   0x0000000c   Code   RO          366    i.getReading        soil.o
-    0x080017d8   0x080017d8   0x00000094   Code   RO          489    i.get_params        uart.o
-    0x0800186c   0x0800186c   0x0000009c   Code   RO          490    i.handle_serial     uart.o
-    0x08001908   0x08001908   0x0000009c   Code   RO          491    i.hashit            uart.o
-    0x080019a4   0x080019a4   0x00000048   Code   RO          149    i.keypad_pin_init   keypad.o
-    0x080019ec   0x080019ec   0x000000c8   Code   RO            4    i.main              main.o
-    0x08001ab4   0x08001ab4   0x00000084   Code   RO          268    i.motor_init        motor.o
-    0x08001b38   0x08001b38   0x000000a0   Code   RO          269    i.moveXY            motor.o
-    0x08001bd8   0x08001bd8   0x00000014   Code   RO          270    i.move_handler      motor.o
-    0x08001bec   0x08001bec   0x0000002c   Code   RO          492    i.msg_ready         uart.o
-    0x08001c18   0x08001c18   0x00000068   Code   RO          271    i.plant             motor.o
-    0x08001c80   0x08001c80   0x0000005c   Code   RO          493    i.print_uart        uart.o
-    0x08001cdc   0x08001cdc   0x0000001c   Code   RO          108    i.pulseServo        systick.o
-    0x08001cf8   0x08001cf8   0x0000002c   Code   RO          272    i.pulseX            motor.o
-    0x08001d24   0x08001d24   0x0000002c   Code   RO          273    i.pulseY            motor.o
-    0x08001d50   0x08001d50   0x0000002c   Code   RO          274    i.pulseZ            motor.o
-    0x08001d7c   0x08001d7c   0x0000008c   Code   RO          494    i.read_msg          uart.o
-    0x08001e08   0x08001e08   0x0000002c   Code   RO          434    i.servo_init        servo.o
-    0x08001e34   0x08001e34   0x00000020   Code   RO          435    i.setServo          servo.o
-    0x08001e54   0x08001e54   0x0000000c   Code   RO          275    i.set_speed         motor.o
-    0x08001e60   0x08001e60   0x00000050   Code   RO            5    i.toString          main.o
-    0x08001eb0   0x08001eb0   0x0000002c   Code   RO          367    i.water             soil.o
-    0x08001edc   0x08001edc   0x0000001c   Code   RO          277    i.zero              motor.o
-    0x08001ef8   0x08001ef8   0x0000002c   Code   RO          618    locale$$code        c_w.l(lc_ctype_c.o)
-    0x08001f24   0x08001f24   0x0000000a   Code   RO          686    x$fpl$fpinit        fz_wm.l(fpinit.o)
-    0x08001f2e   0x08001f2e   0x00000048   Data   RO          192    .constdata          lcd.o
-    0x08001f76   0x08001f76   0x00000002   PAD
-    0x08001f78   0x08001f78   0x00000020   Data   RO          754    Region$$Table       anon$$obj.o
-    0x08001f98   0x08001f98   0x00000110   Data   RO          617    locale$$data        c_w.l(lc_ctype_c.o)
+    0x08001368   0x08001368   0x00000060   Code   RO          106    i.SysTick_Handler   systick.o
+    0x080013c8   0x080013c8   0x00000060   Code   RO          107    i.SysTick_Init      systick.o
+    0x08001428   0x08001428   0x00000020   Code   RO          362    i.TIM2_IRQHandler   soil.o
+    0x08001448   0x08001448   0x00000050   Code   RO          363    i.TIM2_Init         soil.o
+    0x08001498   0x08001498   0x00000014   Code   RO          432    i.TIM3_IRQHandler   servo.o
+    0x080014ac   0x080014ac   0x00000070   Code   RO          433    i.TIM3_Init         servo.o
+    0x0800151c   0x0800151c   0x00000118   Code   RO          488    i.USART_Init        uart.o
+    0x08001634   0x08001634   0x0000001a   Code   RO          364    i.__NVIC_EnableIRQ  soil.o
+    0x0800164e   0x0800164e   0x00000002   PAD
+    0x08001650   0x08001650   0x00000174   Code   RO          365    i.adcInit           soil.o
+    0x080017c4   0x080017c4   0x0000000c   Code   RO          366    i.getReading        soil.o
+    0x080017d0   0x080017d0   0x00000094   Code   RO          489    i.get_params        uart.o
+    0x08001864   0x08001864   0x0000009c   Code   RO          490    i.handle_serial     uart.o
+    0x08001900   0x08001900   0x000000b4   Code   RO          491    i.hashit            uart.o
+    0x080019b4   0x080019b4   0x00000048   Code   RO          149    i.keypad_pin_init   keypad.o
+    0x080019fc   0x080019fc   0x000000a8   Code   RO            4    i.main              main.o
+    0x08001aa4   0x08001aa4   0x00000084   Code   RO          268    i.motor_init        motor.o
+    0x08001b28   0x08001b28   0x000000a0   Code   RO          269    i.moveXY            motor.o
+    0x08001bc8   0x08001bc8   0x00000014   Code   RO          270    i.move_handler      motor.o
+    0x08001bdc   0x08001bdc   0x0000002c   Code   RO          492    i.msg_ready         uart.o
+    0x08001c08   0x08001c08   0x00000068   Code   RO          271    i.plant             motor.o
+    0x08001c70   0x08001c70   0x0000005c   Code   RO          493    i.print_uart        uart.o
+    0x08001ccc   0x08001ccc   0x0000001c   Code   RO          108    i.pulseServo        systick.o
+    0x08001ce8   0x08001ce8   0x0000002c   Code   RO          272    i.pulseX            motor.o
+    0x08001d14   0x08001d14   0x0000002c   Code   RO          273    i.pulseY            motor.o
+    0x08001d40   0x08001d40   0x0000002c   Code   RO          274    i.pulseZ            motor.o
+    0x08001d6c   0x08001d6c   0x0000008c   Code   RO          494    i.read_msg          uart.o
+    0x08001df8   0x08001df8   0x0000002c   Code   RO          434    i.servo_init        servo.o
+    0x08001e24   0x08001e24   0x00000020   Code   RO          435    i.setServo          servo.o
+    0x08001e44   0x08001e44   0x0000000c   Code   RO          275    i.set_speed         motor.o
+    0x08001e50   0x08001e50   0x00000050   Code   RO            5    i.toString          main.o
+    0x08001ea0   0x08001ea0   0x0000002c   Code   RO          367    i.water             soil.o
+    0x08001ecc   0x08001ecc   0x0000001c   Code   RO          277    i.zero              motor.o
+    0x08001ee8   0x08001ee8   0x0000002c   Code   RO          618    locale$$code        c_w.l(lc_ctype_c.o)
+    0x08001f14   0x08001f14   0x0000000a   Code   RO          686    x$fpl$fpinit        fz_wm.l(fpinit.o)
+    0x08001f1e   0x08001f1e   0x00000048   Data   RO          192    .constdata          lcd.o
+    0x08001f66   0x08001f66   0x00000002   PAD
+    0x08001f68   0x08001f68   0x00000020   Data   RO          754    Region$$Table       anon$$obj.o
+    0x08001f88   0x08001f88   0x00000110   Data   RO          617    locale$$data        c_w.l(lc_ctype_c.o)
 
 
-    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x080020a8, Size: 0x000008a0, Max: 0x00018000, ABSOLUTE)
+    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x08002098, Size: 0x000008a0, Max: 0x00018000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20000000   0x080020a8   0x00000008   Data   RW            7    .data               main.o
-    0x20000008   0x080020b0   0x0000000c   Data   RW          109    .data               systick.o
-    0x20000014   0x080020bc   0x00000014   Data   RW          279    .data               motor.o
-    0x20000028   0x080020d0   0x00000008   Data   RW          368    .data               soil.o
-    0x20000030   0x080020d8   0x00000005   Data   RW          496    .data               uart.o
-    0x20000035   0x080020dd   0x00000003   PAD
-    0x20000038   0x080020e0   0x00000004   Data   RW          554    .data               c_w.l(strtok.o)
+    0x20000000   0x08002098   0x00000008   Data   RW            7    .data               main.o
+    0x20000008   0x080020a0   0x0000000c   Data   RW          109    .data               systick.o
+    0x20000014   0x080020ac   0x00000014   Data   RW          279    .data               motor.o
+    0x20000028   0x080020c0   0x00000008   Data   RW          368    .data               soil.o
+    0x20000030   0x080020c8   0x00000005   Data   RW          496    .data               uart.o
+    0x20000035   0x080020cd   0x00000003   PAD
+    0x20000038   0x080020d0   0x00000004   Data   RW          554    .data               c_w.l(strtok.o)
     0x2000003c        -       0x00000200   Zero   RW          495    .bss                uart.o
     0x2000023c        -       0x00000060   Zero   RW          581    .bss                c_w.l(libspace.o)
-    0x2000029c   0x080020e4   0x00000004   PAD
+    0x2000029c   0x080020d4   0x00000004   PAD
     0x200002a0        -       0x00000200   Zero   RW           97    HEAP                startup_stm32l476xx.o
     0x200004a0        -       0x00000400   Zero   RW           96    STACK               startup_stm32l476xx.o
 
@@ -970,18 +970,18 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-        72          8          0          0          0        438   keypad.o
-      3052        144         72          0          0       6076   lcd.o
-       280         30          0          8          0     319638   main.o
-       588         74          0         20          0       5324   motor.o
-       208         22          0          0          0       1922   servo.o
-       670         62          0          8          0      33710   soil.o
+        72          8          0          0          0        450   keypad.o
+      3052        144         72          0          0       6172   lcd.o
+       248         32          0          8          0     319702   main.o
+       588         74          0         20          0       5416   motor.o
+       208         22          0          0          0       1958   servo.o
+       670         62          0          8          0      33794   soil.o
        132         42        392          0       1536        824   startup_stm32l476xx.o
-       228         34          0         12          0      31610   systick.o
-      1016        212          0          5        512       4676   uart.o
+       220         34          0         12          0      31646   systick.o
+      1040        224          0          5        512       4776   uart.o
 
     ----------------------------------------------------------------------
-      6248        628        498         56       2048     404218   Object Totals
+      6232        642        498         56       2048     404738   Object Totals
          0          0         32          0          0          0   (incl. Generated)
          2          0          2          3          0          0   (incl. Padding)
 
@@ -1051,15 +1051,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      7590        676        770         60       2148     401518   Grand Totals
-      7590        676        770         60       2148     401518   ELF Image Totals
-      7590        676        770         60          0          0   ROM Totals
+      7574        690        770         60       2148     402038   Grand Totals
+      7574        690        770         60       2148     402038   ELF Image Totals
+      7574        690        770         60          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                 8360 (   8.16kB)
+    Total RO  Size (Code + RO Data)                 8344 (   8.15kB)
     Total RW  Size (RW Data + ZI Data)              2208 (   2.16kB)
-    Total ROM Size (Code + RO Data + RW Data)       8420 (   8.22kB)
+    Total ROM Size (Code + RO Data + RW Data)       8404 (   8.21kB)
 
 ==============================================================================
 

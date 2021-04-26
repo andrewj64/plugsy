@@ -167,8 +167,8 @@ uint32_t getReading()
 }
 
 void water(){
-	GPIOE->ODR ^= GPIO_ODR_OD8;
+	GPIOE->ODR |= GPIO_ODR_OD8;
 	//TODO: does this actually get any water through?
 	for(int delay; delay < 20000; delay++);
-	GPIOE->ODR ^= GPIO_ODR_OD15;
+	GPIOE->ODR &= ~GPIO_ODR_OD8;
 }

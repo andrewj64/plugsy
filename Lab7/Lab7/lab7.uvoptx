@@ -152,7 +152,7 @@
           <Type>0</Type>
           <LineNumber>71</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134225332</Address>
+          <Address>134225476</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -166,34 +166,34 @@
         <Bp>
           <Number>1</Number>
           <Type>0</Type>
-          <LineNumber>136</LineNumber>
+          <LineNumber>74</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134224150</Address>
+          <Address>134225496</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>.\uart.c</Filename>
+          <Filename>.\servo.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\lab7\uart.c\136</Expression>
+          <Expression>\\lab7\servo.c\74</Expression>
         </Bp>
         <Bp>
           <Number>2</Number>
           <Type>0</Type>
-          <LineNumber>133</LineNumber>
+          <LineNumber>170</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134224208</Address>
+          <Address>134225600</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>.\uart.c</Filename>
+          <Filename>.\soil.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\lab7\uart.c\133</Expression>
+          <Expression>\\lab7\soil.c\170</Expression>
         </Bp>
       </Breakpoint>
       <WatchWindow1>
@@ -209,7 +209,7 @@
       <DebugFlag>
         <trace>0</trace>
         <periodic>1</periodic>
-        <aLwin>0</aLwin>
+        <aLwin>1</aLwin>
         <aCover>0</aCover>
         <aSer1>0</aSer1>
         <aSer2>0</aSer2>

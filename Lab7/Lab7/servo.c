@@ -69,8 +69,8 @@ void TIM3_IRQHandler()
 
 void setServo(void)
 {
-	pulseServo(20);
-	for(int delay = 0; delay < 100000; delay++);
+	pulseServo(10);
+	for(int delay = 0; delay < 120000; delay++);
 	pulseServo(30);
 }
 

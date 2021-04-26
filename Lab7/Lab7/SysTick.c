@@ -30,7 +30,7 @@ SysTick->CTRL |= SysTick_CTRL_ENABLE_Msk;
 
 void SysTick_Handler(void)
 {
-	if(pulses < 20)
+	//if(pulses < 20)
 	{
 		if(count < pulse)	{
 			GPIOA->ODR |= GPIO_ODR_OD0;

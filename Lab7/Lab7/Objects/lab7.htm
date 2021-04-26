@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\lab7.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\lab7.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Sat Apr 24 22:04:31 2021
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Mon Apr 26 13:37:41 2021
 <BR><P>
 <H3>Maximum Stack Usage =        248 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -803,7 +803,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayString
 </UL>
 
-<P><STRONG><a name="[b]"></a>SysTick_Handler</STRONG> (Thumb, 90 bytes, Stack size 0 bytes, systick.o(i.SysTick_Handler))
+<P><STRONG><a name="[b]"></a>SysTick_Handler</STRONG> (Thumb, 82 bytes, Stack size 0 bytes, systick.o(i.SysTick_Handler))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32l476xx.o(RESET)
 </UL>
 <P><STRONG><a name="[9c]"></a>SysTick_Init</STRONG> (Thumb, 88 bytes, Stack size 8 bytes, systick.o(i.SysTick_Init))
@@ -874,7 +874,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[95]"></a>hashit</STRONG> (Thumb, 104 bytes, Stack size 8 bytes, uart.o(i.hashit))
+<P><STRONG><a name="[95]"></a>hashit</STRONG> (Thumb, 118 bytes, Stack size 8 bytes, uart.o(i.hashit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = hashit &rArr; strstr
 </UL>
 <BR>[Calls]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strstr
@@ -886,7 +886,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[6e]"></a>main</STRONG> (Thumb, 176 bytes, Stack size 0 bytes, main.o(i.main))
+<P><STRONG><a name="[6e]"></a>main</STRONG> (Thumb, 142 bytes, Stack size 0 bytes, main.o(i.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 248<LI>Call Chain = main &rArr; handle_serial &rArr; plant &rArr; get_params &rArr; atoi &rArr; strtol &rArr; _strtoul
 </UL>
 <BR>[Calls]<UL><LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_speed
@@ -934,7 +934,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;handle_serial
 </UL>
 
-<P><STRONG><a name="[a5]"></a>msg_ready</STRONG> (Thumb, 32 bytes, Stack size 8 bytes, uart.o(i.msg_ready))
+<P><STRONG><a name="[a5]"></a>msg_ready</STRONG> (Thumb, 30 bytes, Stack size 8 bytes, uart.o(i.msg_ready))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = msg_ready &rArr; print_uart &rArr; strlen
 </UL>
 <BR>[Calls]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;print_uart

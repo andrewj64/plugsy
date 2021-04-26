@@ -120,17 +120,7 @@ int main(void){
 	TIM2_Init();
 	TIM3_Init();
 	
-		// Enable GPIO Clock for buzzer
-	RCC->AHB2ENR |= RCC_AHB2ENR_GPIOEEN;
-	
-	// GPIO Mode: Input(00), Output (01),
-	// AF(10), Analog (11)
-	GPIOE->MODER &= ~0x30000U;			// clear PE8 MODER (water pump)
-	GPIOE->MODER |=  0x10000U;			// set PE8 to output
-	
-	
-	
-		// Configure green LED for BPM
+		// Configure water pump
 	RCC->AHB2ENR |= RCC_AHB2ENR_GPIOEEN;
 	GPIOE->MODER &= ~GPIO_MODER_MODE8;
 	GPIOE->MODER |= GPIO_MODER_MODE8_0;		// configure PE8 to output mode
@@ -138,10 +128,10 @@ int main(void){
 	
 	set_speed(200);
 	print_uart("PLUGSY ready\r\n");
-	//GPIOE->ODR &= ~GPIO_ODR_OD15;
+	//setServo();
 	while(1)
 	{
-		//pulseServo();
+		
 		LCD_DisplayString(toString(getReading()));
 		if(msg_ready())
 		{
