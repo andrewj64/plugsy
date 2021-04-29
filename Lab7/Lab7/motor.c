@@ -91,14 +91,16 @@ void move_handler(){
 void moveXY(int x, int y){
 	//We could make this better by making in concurrent using a timer or systick or something
 	
+	int checkX = x;
+	int checkY = y;
 	xPos += x;
 	yPos += y;
 	//make it so it'll go negative
-	if(x < 0){
+	if(checkX < 0){
 		GPIOE->ODR ^= GPIO_ODR_OD14;
 		x = -x;
 	}
-	if(y < 0){
+	if(checkY < 0){
 		GPIOE->ODR ^= GPIO_ODR_OD15;
 		y = -y;
 	}
@@ -117,10 +119,10 @@ void moveXY(int x, int y){
 	}
 	
 	//reset back to start moving position
-	if(x < 0){
+	if(checkX < 0){
 		GPIOE->ODR ^= GPIO_ODR_OD14;
 	}
-	if(y < 0){
+	if(checkY < 0){
 		GPIOE->ODR ^= GPIO_ODR_OD15;
 	}
 	//TODO: do we want to add any error checking for motors?

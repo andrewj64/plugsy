@@ -133,15 +133,15 @@ int main(void){
 	{
 		
 		LCD_DisplayString(toString(getReading()));
-		if(msg_ready())
-		{
-			read_msg();
-			handle_serial();
-		}
+//		if(msg_ready())
+//		{
+//			read_msg();
+//			handle_serial();
+//		}
 
 		
 		//update_servo();
-		//pulseY();
+		pulseX();
 	}
 	
 }
