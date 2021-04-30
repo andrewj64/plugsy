@@ -102,7 +102,7 @@ int main(void){
 	
 	SysTick_Init();
 	LCD_Initialization();
-	keypad_pin_init();
+	//keypad_pin_init();
 	motor_init();   	//PB7  for X direction
 										//PB6 for Y direction
 										//PB 3 for Z direction
@@ -126,22 +126,23 @@ int main(void){
 	GPIOE->MODER |= GPIO_MODER_MODE8_0;		// configure PE8 to output mode
 	
 	
-	set_speed(200);
+	setMotorPulseX(2000);
+	setMotorPulseY(1000);
+	setMotorPulseZ(800);
 	print_uart("PLUGSY ready\r\n");
 	//setServo();
 	while(1)
 	{
 		
 		LCD_DisplayString(toString(getReading()));
-//		if(msg_ready())
-//		{
-//			read_msg();
-//			handle_serial();
-//		}
-
+		if(msg_ready())
+		{
+			read_msg();
+			handle_serial();
+		}
 		
 		//update_servo();
-		pulseX();
+		//pulseX();
 	}
 	
 }

@@ -4,15 +4,17 @@
 #include "uart.h"
 
 //TODO: These numbers are arbitrary. We need to test to discover the proper length.
-#define LOOPS_FOR_INCH_X 1000
-#define LOOPS_FOR_INCH_Y 1000
-#define Z_DEPTH 5000
+#define LOOPS_FOR_INCH_X 450
+#define LOOPS_FOR_INCH_Y 250
+#define Z_DEPTH 500
 
 int xPos = 0;
 int yPos = 0;
 //int zPos = 0;
 
-volatile int max;
+int maxX;
+int maxY;
+int maxZ;
 uint8_t fullStep[4] = {0x9, 0xA, 0x6, 0x5};
 
 int getX(){
@@ -29,7 +31,8 @@ int getY(){
 
 void motor_init(void)
 {
-	RCC->AHB2ENR |= RCC_AHB2ENR_GPIOBEN;	//enable port clocks
+	RCC->AHB2ENR |= RCC_AHB2ENR_GPIOBEN | RCC_AHB2ENR_GPIOEEN;	//enable port clocks
+	
 	
 	// configure PB 2,3,6,7
 	GPIOB->MODER &= ~0xF0F0U;			// clear MODER
@@ -40,42 +43,52 @@ void motor_init(void)
 	GPIOB->PUPDR |= (GPIO_PUPDR_PUPD2_1 | GPIO_PUPDR_PUPD3_1 | GPIO_PUPDR_PUPD6_1 | GPIO_PUPDR_PUPD7_1);
 	
 	//configure PE13,14,15 for Z, X, and Y directions respectively
-	GPIOE->MODER &= ~0xFC000000U;			// clear MODER
-	GPIOE->MODER |=  0x54000000U;			// set to output 01
+	GPIOE->MODER &= ~(GPIO_MODER_MODE10 | GPIO_MODER_MODE14 | GPIO_MODER_MODE15);			// clear MODER
+	GPIOE->MODER |=  (GPIO_MODER_MODE10_0 | GPIO_MODER_MODE14_0 | GPIO_MODER_MODE15_0);			// set to output 01
 	
-	GPIOE->PUPDR &= ~(GPIO_PUPDR_PUPD13 | GPIO_PUPDR_PUPD14 | GPIO_PUPDR_PUPD15);
-	GPIOE->PUPDR |= (GPIO_PUPDR_PUPD13_1 | GPIO_PUPDR_PUPD14_1 | GPIO_PUPDR_PUPD15_1);
+	GPIOE->PUPDR &= ~(GPIO_PUPDR_PUPD10 | GPIO_PUPDR_PUPD14 | GPIO_PUPDR_PUPD15);
+	GPIOE->PUPDR |= (GPIO_PUPDR_PUPD10_1 | GPIO_PUPDR_PUPD14_1 | GPIO_PUPDR_PUPD15_1);
 }
 
-void set_speed(int speed)
+void setMotorPulseX(int speed)
 {
-	max = speed;
+	maxX = speed;
+}
+
+void setMotorPulseY(int speed)
+{
+	maxY = speed;
+}
+
+void setMotorPulseZ(int speed)
+{
+	maxZ = speed;
 }
 
 void pulseX(void)
 {
 	// toggle pulse signal
-	for(int delay; delay < max; delay++){};
+	//for(int delay = 0; delay < maxX; delay++);
 	GPIOB->ODR ^= GPIO_ODR_OD7;
-	uint8_t on = (GPIOB->ODR & GPIO_ODR_OD7) >> 7;
+	for(int delay = 0; delay < maxX; delay++);
 		
 }
 
 void pulseY(void)
 {
 	// toggle pulse signal
-	for(int delay; delay < max; delay++){};
+	for(int delay = 0; delay < maxY; delay++);
 	GPIOB->ODR ^= GPIO_ODR_OD6;
-	uint8_t on = (GPIOB->ODR & GPIO_ODR_OD6) >> 6;
+	for(int delay; delay < maxY; delay++);
 		
 }
 
 void pulseZ(void)
 {
 	// toggle pulse signal
-	for(int delay; delay < max; delay++){};
+	for(int delay = 0; delay < maxZ; delay++);
 	GPIOB->ODR ^= GPIO_ODR_OD3;
-	uint8_t on = (GPIOB->ODR & GPIO_ODR_OD3) >> 3;
+	for(int delay; delay < maxZ; delay++);
 		
 }
 
@@ -97,12 +110,16 @@ void moveXY(int x, int y){
 	yPos += y;
 	//make it so it'll go negative
 	if(checkX < 0){
-		GPIOE->ODR ^= GPIO_ODR_OD14;
+		GPIOE->ODR |= GPIO_ODR_OD14;
 		x = -x;
+	} else {
+		GPIOE->ODR &= ~GPIO_ODR_OD14;
 	}
 	if(checkY < 0){
-		GPIOE->ODR ^= GPIO_ODR_OD15;
+		GPIOE->ODR |= GPIO_ODR_OD15;
 		y = -y;
+	} else {
+		GPIOE->ODR &= ~GPIO_ODR_OD15;
 	}
 	
 	//Move X inches
@@ -119,12 +136,12 @@ void moveXY(int x, int y){
 	}
 	
 	//reset back to start moving position
-	if(checkX < 0){
-		GPIOE->ODR ^= GPIO_ODR_OD14;
-	}
-	if(checkY < 0){
-		GPIOE->ODR ^= GPIO_ODR_OD15;
-	}
+//	if(checkX < 0){
+//		GPIOE->ODR ^= GPIO_ODR_OD14;
+//	}
+//	if(checkY < 0){
+//		GPIOE->ODR ^= GPIO_ODR_OD15;
+//	}
 	//TODO: do we want to add any error checking for motors?
 }
 
@@ -151,13 +168,13 @@ void plant(){
 
 	moveXY(1,0);
 	//change Z direction
-	GPIOE->ODR ^= GPIO_ODR_OD13;
+	GPIOE->ODR |= GPIO_ODR_OD10;
 	//move back up 
 	for(int i = 0; i < Z_DEPTH; i++){
 			pulseZ();
 	}
 	//change Z direction back so we always start by going down.
-	GPIOE->ODR ^= GPIO_ODR_OD13;
+	GPIOE->ODR &= ~GPIO_ODR_OD10;
 }
 
 void weed(void){
