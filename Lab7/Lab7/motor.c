@@ -4,9 +4,12 @@
 #include "uart.h"
 
 //TODO: These numbers are arbitrary. We need to test to discover the proper length.
-#define LOOPS_FOR_INCH_X 450
+//#define LOOPS_FOR_INCH_X 450
+//#define LOOPS_FOR_INCH_Y 250
+#define LOOPS_FOR_INCH_X 250
 #define LOOPS_FOR_INCH_Y 250
-#define Z_DEPTH 500
+#define Z_DEPTH 8000
+#define UP_DEPTH 1000
 
 int xPos = 0;
 int yPos = 0;
@@ -177,6 +180,42 @@ void plant(){
 	GPIOE->ODR &= ~GPIO_ODR_OD10;
 }
 
+void upDown(int step) {
+	//move down to depth
+	int zDown = (step == 0) ? Z_DEPTH : UP_DEPTH;
+	int zUp = (step == 2) ? Z_DEPTH : UP_DEPTH;
+	for(int i = 0; i < zDown; i++){
+			pulseZ();
+	}
+	GPIOE->ODR |= GPIO_ODR_OD10;
+	//move back up 
+	for(int i = 0; i < zUp; i++){
+			pulseZ();
+	}
+	//change Z direction back so we always start by going down.
+	GPIOE->ODR &= ~GPIO_ODR_OD10;
+}
+
 void weed(void){
 	// 420
+	int params[2];
+	get_params(2, params);
+	
+	//TODO:Add error checking to see if getting params worked and there were the right number.
+	
+	moveXY(params[0], params[1]);
+	
+	// Stab in a little square to murder weeds
+	// +---+
+	// | w |
+	// +---+
+	upDown(0);
+	moveXY(1,0);
+	upDown(1);
+	moveXY(0,1);
+	upDown(1);
+	moveXY(-1,0);
+	upDown(2);
+	moveXY(0,-1);
 }
+

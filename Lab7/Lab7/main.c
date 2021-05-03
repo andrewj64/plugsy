@@ -120,10 +120,7 @@ int main(void){
 	TIM2_Init();
 	TIM3_Init();
 	
-		// Configure water pump
-	RCC->AHB2ENR |= RCC_AHB2ENR_GPIOEEN;
-	GPIOE->MODER &= ~GPIO_MODER_MODE8;
-	GPIOE->MODER |= GPIO_MODER_MODE8_0;		// configure PE8 to output mode
+		
 	
 	
 	setMotorPulseX(2000);

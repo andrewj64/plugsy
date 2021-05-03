@@ -131,14 +131,14 @@ cmd hashit(void)
 	if(strstr(msg, "zero")) 			return eZero;
 	if(strstr(msg, "move")) 			return eMove;
 	if(strstr(msg, "water")) 			return eWater;
-	if(strstr(msg, "servo")) 		return eServo;
+	if(strstr(msg, "weed")) 			return eWeed;
+	if(strstr(msg, "servo")) 			return eServo;
 	if(strstr(msg, "plant")) 			return ePlant;
   return eUnknown; // command not found
 }
 
 void handle_serial(void)
 {
-	char* tmp = msg;
 	print_uart("CMD: ");
 	print_uart(msg);
 	print_uart("\r\n");
@@ -166,7 +166,7 @@ void handle_serial(void)
 			plant();
 			break;
 		case eWeed:
-			//weed();
+			weed();
 			break;
 		case eWater:
 			water();

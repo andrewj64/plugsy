@@ -7,6 +7,14 @@ void adcInit(void)
 	
 	RCC->AHB2ENR |= RCC_AHB2ENR_GPIOEEN;	//enable port clocks
 	
+	// Configure water pump
+	GPIOE->MODER &= ~GPIO_MODER_MODE8;
+	GPIOE->MODER |= GPIO_MODER_MODE8_0;		// configure PE8 to output mode
+	GPIOE->PUPDR &= ~GPIO_PUPDR_PUPD8;
+	GPIOE->PUPDR |= GPIO_PUPDR_PUPD8_0;
+	
+	
+	
 	// configure PE10
 	GPIOE->MODER |=  (3<<10);			// set to analog
 	
@@ -168,6 +176,6 @@ uint32_t getReading()
 
 void water(){
 	GPIOE->ODR |= GPIO_ODR_OD8;
-	//TODO: does this actually get any water through?	for(int delay; delay < 1200000; delay++);
+	for(int delay; delay < 1200000; delay++);
 	GPIOE->ODR &= ~GPIO_ODR_OD8;
 }
